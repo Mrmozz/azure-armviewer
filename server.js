@@ -1,26 +1,33 @@
 var express = require('express');
 var logger = require('morgan');
 var app = express();
+var fs = require("fs");
 
 // Set the view engine to ejs
 app.set('view engine', 'ejs');
+
 // Set up logging
 if (app.get('env') === 'production') {
     app.use(logger('combined'));
   } else {
     app.use(logger('dev'));
 }
+console.log(`### Node environment mode is '${app.get('env')}'`);
 
 // Serve static content
 app.use('/public', express.static('public'))
 
-// Load in local data
+// Load in local config global data 
 var locals = require('./locals');
 app.locals = locals;
 
-// Set up routes
-var router = require('./router');
-app.use('/', router);
+var route_path = "./routes/";
+fs.readdirSync(route_path).forEach( function(file) {
+  console.log(`### Loading routes from ${route_path}${file}`);
+  var route = require(route_path + file);
+  app.use('/', route);
+});
+
 
 // Start the server, wow!
 var port = process.env.PORT || 3000
