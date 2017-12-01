@@ -4,10 +4,6 @@ var logger = require('morgan');
 var app = express();
 var fs = require("fs");
 
-// Load in config data stuff and pass to app locals 
-var config = require('./config');
-app.locals = config;
-
 // Set the view engine to ejs
 app.set('view engine', 'ejs');
 
