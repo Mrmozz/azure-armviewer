@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <% include partials/head %> 
+  <script src="/js/cytoscape.min.js"></script>
+  <script src="/js/cytoscape-snap-to-grid.js"></script>
+  <script src="/js/viewer.js"></script>
+</head>
+
+<body>
+
+  <header> <% include partials/header %> </header>
+
+  <main>
+    <div id="mainview">
+    </div>
+  </main>
+
+  <script>
+    let data = JSON.parse('<%- dataJSON %>');
+    //console.log('### Data', data);
+    initCy();
+    loadData(data)
+
+    $(window).resize(function() {
+      resize();
+    });
+  </script>
+</body>
+</html>

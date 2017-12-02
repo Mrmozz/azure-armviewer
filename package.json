@@ -14,9 +14,12 @@
   "author": "Ben Coleman",
   "license": "Apache-2.0",
   "dependencies": {
+    "cytoscape": "^3.2.6",
+    "cytoscape-snap-to-grid": "^2.0.0",
     "dotenv": "^4.0.0",
     "ejs": "^2.5.7",
     "express": "^4.16.1",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "request": "^2.83.0"
   }
 }

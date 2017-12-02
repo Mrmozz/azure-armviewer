@@ -1,15 +1,77 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-   <div class="container-fluid">
+<nav class='navbar navbar-inverse navbar-fixed-top' role='navigation'>
+   <div class='container-fluid'>
 
-       <div class="navbar-header">
-        <a href="/" class="navbar-left"><img src="/public/img/icon-wh.svg"></a>
-        <a class="navbar-brand" href="/"> ARM Viewer </a>
-       </div>
+      <div class='navbar-header'>
+         <a href='/' class='navbar-left'><img src='/img/icon-wh.svg'></a>
+         <a class='navbar-brand' href='/'> ARM Viewer </a>
+      </div>
 
-       <ul class="nav navbar-nav">
-           <li><a href="/">Home</a></li>
-           <li><a href="/about">About</a></li>
-       </ul>
+      <ul class='nav navbar-nav'>
+         <li><a href='/' class='btn btn-success navbar-btn'><i class="fa fa-file-code-o"></i>&nbsp; Load File</a></li>
+         <li><a data-toggle="modal" data-target="#dialogLoadLink" class='btn btn-success navbar-btn'><i class="fa fa-external-link"></i>&nbsp; Load URL</a></li>
+         <li><a data-toggle="modal" data-target="#dialogLoadQS"  class='btn btn-success navbar-btn'><i class="fa fa-git-square"></i>&nbsp; Load Quickstart</a></li>
+         <li><a href='/' class='btn btn-success navbar-btn'><i class="fa fa-cog"></i>&nbsp; Settings</a></li>
+      </ul>
 
    </div>
 </nav>
+
+<div id="dialogLoadLink" class="modal fade" role="dialog">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Load Template From URL</h4>
+         </div>
+         <div class="modal-body">
+            <div class="form-group">
+               <label for="usr">Template URL:</label>
+               <input type="text" class="form-control" id="url" placeholder="">
+            </div>
+         </div>
+         <div class="modal-footer">
+            <button class="btn btn-success" data-dismiss="modal" 
+              onclick="document.location = `/url/${encodeURIComponent($('#url').val())}`">
+               &nbsp; OK &nbsp; 
+            </button>
+            <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+<div id="dialogLoadQS" class="modal fade" role="dialog">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Load Template Quickstart</h4>
+         </div>
+         <div class="modal-body">
+            <div class="form-group">
+               <label for="usr">Template:</label>
+               <select class="form-control" id="quickSel">
+                  <option>sdssds</option>
+               </select>
+            </div>
+         </div>
+         <div class="modal-footer">
+            <button class="btn btn-success" data-dismiss="modal" onclick="document.location = `/url/${encodeURIComponent($('#url').val())}`">
+               &nbsp; OK &nbsp;
+            </button>
+            <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+         </div>
+      </div>
+   </div>
+</div>
+
+<script>
+$('#dialogLoadLink').on('shown.bs.modal', function () {
+   $('input:text:visible:first', this).focus();
+});  
+
+$('#dialogLoadQS').on('shown.bs.modal', function () {
+   
+});  
+</script>
