@@ -17,9 +17,17 @@
     </div>
   </main>
 
+  <div id="infobox" class="panel panel-primary">
+    <div class="panel-heading"><img id="infoimg" src=''/> &nbsp; Resource Details</div>
+    <div class="panel-body">
+      <b>Type:</b> <span id="infotype"></span><br/>
+      <b>Name:</b> <span id="infoname"></span><br/>
+      <b>Location:</b> <span id="infoloc"></span><br/>
+    </div>
+  </div>
+
   <script>
     let data = JSON.parse('<%- dataJSON %>');
-    //console.log('### Data', data);
     initCy();
     loadData(data)
 

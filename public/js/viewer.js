@@ -3,12 +3,36 @@ var cy;
 var settingSnap = false;
 
 function initCy() {
+  $('#infobox').hide();
+
   cy = cytoscape({ 
     container: $('#mainview'),
     wheelSensitivity: 0.15,
     maxZoom: 5,
-    minZoom: 0.2
+    minZoom: 0.2,
+    selectionType: 'single'
   });
+
+  // Force single selection only
+  cy.on('select', evt => {
+    if(!evt.target.isEdge()) {
+      if(cy.$('node:selected').length > 1)
+        cy.$('node:selected')[0].unselect();
+
+      $('#infobox').show();
+      $('#infoimg').attr('src', evt.target.data('img'));
+      $('#infotype').text(evt.target.data('type'));
+      $('#infoname').text(unescape(evt.target.data('name')));
+      if(evt.target.data('location') != 'undefined') 
+        $('#infoloc').text(unescape(evt.target.data('location')));
+      else
+        $('#infoloc').text('')
+    }
+  })
+
+  cy.on('unselect', evt => {
+    $('#infobox').hide();
+  })
 }
 
 function loadData(elements) {
@@ -24,7 +48,7 @@ function reLayout() {
     'background-image': 'data(img)',
     'background-width': '90%',
     'background-height': '90%',
-    'shape': 'rectangle',
+    'shape': 'roundrectangle',
     'width': '128',
     'height': '128',
     'border-width': '0',
@@ -34,6 +58,10 @@ function reLayout() {
     'text-valign': 'bottom',
     'text-margin-y': '10vh',
     'font-size': '20%'
+  });
+  cy.style().selector('node:selected').style({
+    'border-width': '4',
+    'border-color': 'rgb(0,120,215)'
   });
 
   cy.style().selector('edge').style({
