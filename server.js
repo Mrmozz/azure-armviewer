@@ -13,9 +13,9 @@ app.set('view engine', 'ejs');
 
 // Set up logging
 if (app.get('env') === 'production') {
-    //app.use(logger('combined'));
+    app.use(logger('combined'));
   } else {
-    //app.use(logger('dev'));
+    app.use(logger('dev'));
 }
 console.log(`### Node environment mode is '${app.get('env')}'`);
 
