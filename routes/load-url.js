@@ -3,18 +3,17 @@ const router = express.Router();
 const request = require('request');
 const ARMParser = require('../lib/arm-parser');
 
-router
-.get('/url', function (req, res, next) {
-  res.redirect('/');
-})
 
-.get('/url/:url', function (req, res, next) {
-  let url = req.params.url;
+router
+.get('/view', function (req, res, next) {
+  let url = req.query.url;
+  if(!url) res.redirect('/');
 
   request.get(url, function (err, armres, body) {
     if(err) { 
       res.render('error', {
-        err: err
+        err: err,
+        isHome: true
       });
       return; 
     }
@@ -27,7 +26,8 @@ router
 
     if(parser.getError()) {
       res.render('error', {
-        err: parser.getError()
+        err: parser.getError(),
+        isHome: true
       });
       return; 
     }

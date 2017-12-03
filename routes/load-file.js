@@ -4,7 +4,7 @@ const request = require('request');
 const ARMParser = require('../lib/arm-parser');
 
 router
-.post('/file', function (req, res, next) {
+.post('/view', function (req, res, next) {
   // JSON is in file, we hope!
   let templateJSON = req.files.template.data.toString();
   
@@ -13,7 +13,8 @@ router
 
   if(parser.getError()) {
     res.render('error', {
-      err: parser.getError()
+      err: parser.getError(),
+      isHome: true
     });
     return; 
   }

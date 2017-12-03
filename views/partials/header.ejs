@@ -12,23 +12,23 @@
     </ul>
   
     <% if(!isHome) { %>
-    <ul class='nav navbar-nav pull-right' >
-      <li><a style="font-size:170%" class='btn btn-primary navbar-btn' 
-        id="snapBut" onclick='toggleSnap()' data-toggle="tooltip" 
-        title="Snap to grid"><i class="fa fa-th"></i></a></li>
+      <ul class='nav navbar-nav pull-right' >
+        <li><a style="font-size:170%" class='btn btn-primary navbar-btn' 
+          id="snapBut" onclick='toggleSnap()' data-toggle="tooltip" 
+          title="Snap to grid"><i class="fa fa-th"></i></a></li>
 
-      <li><a style="font-size:170%" class='btn btn-primary navbar-btn' 
-        onclick='cy.fit()' data-toggle="tooltip"
-        title="Refit view"><i class="fa fa-compress"></i></a></li>
+        <li><a style="font-size:170%" class='btn btn-primary navbar-btn' 
+          onclick='cy.fit()' data-toggle="tooltip"
+          title="Refit view"><i class="fa fa-compress"></i></a></li>
 
-      <li><a style="font-size:170%" class='btn btn-primary navbar-btn' 
-        onclick='reLayout()' data-toggle="tooltip"
-        title="Re-layout"><i class="fa fa-clone"></i></a></li>
-            
-      <li><a style="font-size:170%" class='btn btn-primary navbar-btn' 
-        onclick='savePNG()' data-toggle="tooltip"
-        title="Save as PNG"><i class="fa fa-download"></i></a></li>
-    </ul>
+        <li><a style="font-size:170%" class='btn btn-primary navbar-btn' 
+          onclick='reLayout()' data-toggle="tooltip"
+          title="Re-layout"><i class="fa fa-clone"></i></a></li>
+              
+        <li><a style="font-size:170%" class='btn btn-primary navbar-btn' 
+          onclick='savePNG()' data-toggle="tooltip"
+          title="Save as PNG"><i class="fa fa-download"></i></a></li>
+      </ul>
     <% } %>
   
   </div>
@@ -44,7 +44,7 @@
            <h4 class="modal-title">Load Template From File</h4>
         </div>
         <div class="modal-body">
-          <form method="post" id="fileform" action="/file" encType="multipart/form-data">
+          <form method="post" id="fileform" action="/view" encType="multipart/form-data">
             <div class="form-group">
                 <label for="file"></label>JSON file:</label>
                 <input type="file" class="form-control" name="template">
@@ -79,7 +79,7 @@
         </div>
         <div class="modal-footer">
            <button class="btn btn-success" data-dismiss="modal" 
-             onclick="document.location = `/url/${encodeURIComponent($('#url').val())}`">
+             onclick="document.location = `/view?url=${encodeURIComponent($('#url').val())}`">
               &nbsp; OK &nbsp; 
            </button>
            <button class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -89,27 +89,6 @@
 </div>
 
 <!-- =============================================== -->
-
-<div id="dialogSettings" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-     <div class="modal-content">
-        <div class="modal-header">
-           <button class="close" data-dismiss="modal">&times;</button>
-           <h4 class="modal-title">Settings</h4>
-        </div>
-        <div class="modal-body">
-          <label for="url">Snap to Grid:</label>
-          <input type="checkbox" id="settingGrid" onchange="settingSnap = event.target.checked; resize();" data-toggle="toggle" data-width="75" data-height="50"/>
-        </div>
-        <div class="modal-footer">
-           <button class="btn btn-success" data-dismiss="modal" onclick="">
-              &nbsp; OK &nbsp;
-           </button>
-           <button class="btn btn-default" data-dismiss="modal">Cancel</button>
-        </div>
-     </div>
-  </div>
-</div>
 
 <script>
   $('#dialogLoadLink').on('shown.bs.modal', function () {

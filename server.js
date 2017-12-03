@@ -31,6 +31,6 @@ fs.readdirSync(route_path).forEach(function(file) {
 });
 
 // Start the server, wow!
-var port = process.env.PORT ||  3000
+var port = process.env.PORT || 3000
 app.listen(port);
 console.log(`### Server listening on port ${port}`);
