@@ -3,7 +3,6 @@ const router = express.Router();
 const request = require('request');
 const ARMParser = require('../lib/arm-parser');
 
-
 router
 .get('/view', function (req, res, next) {
   let url = req.query.url;

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <% include partials/head %> </head>
+<body class="container">
+
+  <header> <% include partials/header %> </header>
+
+  <main>
+    <div class="panel panel-success">
+      <div class="panel-heading">Load Template from Azure Quickstarts</div>
+      <div class="panel-body">
+        <label for="url">Template:</label>
+        <select class="form-control" id="listSel" style="width:50%">
+          <% for(l in linkList) { %>
+            <option><%= linkList[l] %></option>
+          <% } %>
+        </select>
+        <br/>
+        <button class="btn btn-primary" onclick="document.location = '/view?url='+encodeURIComponent('https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/'+$('#listSel').val()+'/azuredeploy.json')">Load Template</button>
+      </div>
+    </div>
+   </main>
+
+   <footer> <% include partials/footer %> </footer>
+   
+</body>
+</html>
