@@ -1,6 +1,6 @@
 {
   "name": "azure-armviewer",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Visualize and render graphically ARM templates",
   "main": "server.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/benc-uk/azure-armviewer"
+    "url": "https://github.com/benc-uk/blah"
   },
   "author": "Ben Coleman",
   "license": "Apache-2.0",

@@ -28,6 +28,13 @@ footer {
   padding-bottom: 5px;
   margin: 5px;
 }
+
+.btntool {
+  width: 80% !important;
+  margin: 5px !important;
+  font-size: 28px;
+  color: #222222 !important;
+}
  
 #mainview {
   width: 100%;

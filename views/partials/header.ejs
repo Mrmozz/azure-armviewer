@@ -1,77 +1,122 @@
 <nav class='navbar navbar-inverse navbar-fixed-top' role='navigation'>
-   <div class='container-fluid'>
+  <div class='container-fluid'>
 
-      <div class='navbar-header'>
-         <a href='/' class='navbar-left'><img src='/img/icon-wh.svg'></a>
-         <a class='navbar-brand' href='/'> ARM Viewer </a>
-      </div>
+    <div class='navbar-header'>
+      <a href='/' class='navbar-left'><img src='/img/icon-wh.svg'></a>
+      <a class='navbar-brand' href='/'> ARM Viewer </a>
+    </div>
 
-      <ul class='nav navbar-nav'>
-         <li><a href='/' class='btn btn-success navbar-btn'><i class="fa fa-file-code-o"></i>&nbsp; Load File</a></li>
-         <li><a data-toggle="modal" data-target="#dialogLoadLink" class='btn btn-success navbar-btn'><i class="fa fa-external-link"></i>&nbsp; Load URL</a></li>
-         <li><a data-toggle="modal" data-target="#dialogLoadQS"  class='btn btn-success navbar-btn'><i class="fa fa-git-square"></i>&nbsp; Load Quickstart</a></li>
-         <li><a href='/' class='btn btn-success navbar-btn'><i class="fa fa-cog"></i>&nbsp; Settings</a></li>
-      </ul>
+    <ul class='nav navbar-nav'>
+      <li><a data-toggle="modal" data-target="#dialogLoadFile" class='btn btn-success navbar-btn'><i class="fa fa-file-code-o"></i>&nbsp; Load File</a></li>
+      <li><a data-toggle="modal" data-target="#dialogLoadLink" class='btn btn-success navbar-btn'><i class="fa fa-external-link"></i>&nbsp; Load URL</a></li>
+    </ul>
+  
+    <% if(!isHome) { %>
+    <ul class='nav navbar-nav pull-right' >
+      <li><a style="font-size:170%" class='btn btn-primary navbar-btn' 
+        id="snapBut" onclick='toggleSnap()' data-toggle="tooltip" 
+        title="Snap to grid"><i class="fa fa-th"></i></a></li>
 
-   </div>
+      <li><a style="font-size:170%" class='btn btn-primary navbar-btn' 
+        onclick='cy.fit()' data-toggle="tooltip"
+        title="Refit view"><i class="fa fa-compress"></i></a></li>
+
+      <li><a style="font-size:170%" class='btn btn-primary navbar-btn' 
+        onclick='reLayout()' data-toggle="tooltip"
+        title="Re-layout"><i class="fa fa-clone"></i></a></li>
+            
+      <li><a style="font-size:170%" class='btn btn-primary navbar-btn' 
+        onclick='savePNG()' data-toggle="tooltip"
+        title="Save as PNG"><i class="fa fa-download"></i></a></li>
+    </ul>
+    <% } %>
+  
+  </div>
 </nav>
 
-<div id="dialogLoadLink" class="modal fade" role="dialog">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-            <button class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Load Template From URL</h4>
-         </div>
-         <div class="modal-body">
+<!-- ================================================== -->
+
+<div id="dialogLoadFile" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header">
+           <button class="close" data-dismiss="modal">&times;</button>
+           <h4 class="modal-title">Load Template From File</h4>
+        </div>
+        <div class="modal-body">
+          <form method="post" id="fileform" action="/file" encType="multipart/form-data">
             <div class="form-group">
-               <label for="usr">Template URL:</label>
-               <input type="text" class="form-control" id="url" placeholder="">
+                <label for="file"></label>JSON file:</label>
+                <input type="file" class="form-control" name="template">
             </div>
-         </div>
-         <div class="modal-footer">
-            <button class="btn btn-success" data-dismiss="modal" 
-              onclick="document.location = `/url/${encodeURIComponent($('#url').val())}`">
-               &nbsp; OK &nbsp; 
-            </button>
-            <button class="btn btn-default" data-dismiss="modal">Cancel</button>
-         </div>
-      </div>
-   </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+           <button class="btn btn-success" data-dismiss="modal" 
+             onclick="$('#fileform').submit()">
+              &nbsp; OK &nbsp; 
+           </button>
+           <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+     </div>
+  </div>
 </div>
 
+<!-- ==================================================== -->
 
-<div id="dialogLoadQS" class="modal fade" role="dialog">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-            <button class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Load Template Quickstart</h4>
-         </div>
-         <div class="modal-body">
-            <div class="form-group">
-               <label for="usr">Template:</label>
-               <select class="form-control" id="quickSel">
-                  <option>sdssds</option>
-               </select>
-            </div>
-         </div>
-         <div class="modal-footer">
-            <button class="btn btn-success" data-dismiss="modal" onclick="document.location = `/url/${encodeURIComponent($('#url').val())}`">
-               &nbsp; OK &nbsp;
-            </button>
-            <button class="btn btn-default" data-dismiss="modal">Cancel</button>
-         </div>
-      </div>
-   </div>
+<div id="dialogLoadLink" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header">
+           <button class="close" data-dismiss="modal">&times;</button>
+           <h4 class="modal-title">Load Template From URL</h4>
+        </div>
+        <div class="modal-body">
+           <div class="form-group">
+              <label for="url">Template URL:</label>
+              <input type="text" class="form-control" id="url" placeholder="">
+           </div>
+        </div>
+        <div class="modal-footer">
+           <button class="btn btn-success" data-dismiss="modal" 
+             onclick="document.location = `/url/${encodeURIComponent($('#url').val())}`">
+              &nbsp; OK &nbsp; 
+           </button>
+           <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+     </div>
+  </div>
+</div>
+
+<!-- =============================================== -->
+
+<div id="dialogSettings" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header">
+           <button class="close" data-dismiss="modal">&times;</button>
+           <h4 class="modal-title">Settings</h4>
+        </div>
+        <div class="modal-body">
+          <label for="url">Snap to Grid:</label>
+          <input type="checkbox" id="settingGrid" onchange="settingSnap = event.target.checked; resize();" data-toggle="toggle" data-width="75" data-height="50"/>
+        </div>
+        <div class="modal-footer">
+           <button class="btn btn-success" data-dismiss="modal" onclick="">
+              &nbsp; OK &nbsp;
+           </button>
+           <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+     </div>
+  </div>
 </div>
 
 <script>
-$('#dialogLoadLink').on('shown.bs.modal', function () {
-   $('input:text:visible:first', this).focus();
-});  
+  $('#dialogLoadLink').on('shown.bs.modal', function () {
+    $('input:text:visible:first', this).focus();
+  });   
 
-$('#dialogLoadQS').on('shown.bs.modal', function () {
-   
-});  
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({delay: 200, placement: 'bottom', container: 'main'}); 
+  });
 </script>

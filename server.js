@@ -4,6 +4,10 @@ var logger = require('morgan');
 var app = express();
 var fs = require("fs");
 
+// Allow file uploads
+const fileUpload = require('express-fileupload');
+app.use(fileUpload());
+
 // Set the view engine to ejs
 app.set('view engine', 'ejs');
 

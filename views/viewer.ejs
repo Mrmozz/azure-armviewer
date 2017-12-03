@@ -4,6 +4,7 @@
   <% include partials/head %> 
   <script src="/js/cytoscape.min.js"></script>
   <script src="/js/cytoscape-snap-to-grid.js"></script>
+  <script src="/js/fileSaver.js"></script>
   <script src="/js/viewer.js"></script>
 </head>
 
@@ -23,7 +24,8 @@
     loadData(data)
 
     $(window).resize(function() {
-      resize();
+      cy.resize();
+      cy.fit();
     });
   </script>
 </body>
