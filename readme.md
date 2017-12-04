@@ -8,6 +8,11 @@ This is a simple but functional web based viewer / visualizer for Azure Resource
 - Snap to grid mode
 - Exporting to PNG
 
+### Limitations
+- The app attempts to find the links (`dependsOn` relationships) between ARM resources, however due to the many subtle and complex ways these relationships can be defined, not every link is correctly picked up.
+- Resources may not be shown with the correct icon. Icons for the most common resource types have been added, more are added as required. 
+- A shortened resource *type* rather than the *name* is shown as the label on nodes on the graph. Resolving names for resources is an extremly complex task, due to the programatic way names are generally expressed with ARM functions and expressions. It is felt that showing names would add little value for a lot of development effort, however it may be considered in the future
+
 # Demo Version
 A runnning demo instance is deployed and usable here [http://armviewer.azurewebsites.net/](http://armviewer.azurewebsites.net/)
 
