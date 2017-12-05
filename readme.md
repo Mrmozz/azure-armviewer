@@ -14,10 +14,10 @@ A runnning demo instance is deployed and usable here [http://armviewer.azurewebs
 # Screenshot
 ![](https://user-images.githubusercontent.com/14982936/33526343-9bd465d6-d837-11e7-86b0-1a25ad5ffaf4.png)
 
-# Limitations
+# Limitations & Known Issues 
 - The app attempts to find the links (`dependsOn` relationships) between ARM resources, however due to the many subtle and complex ways these relationships can be defined & expressed, certain links may not be picked up & displayed.
 - Resources may not be shown with the correct icon. Icons for the most commonly used resource types have been added, more are added as required. 
-- A shortened resource *type* rather than the *name* is shown as the label on nodes on the graph. Resolving names for resources is an extremly complex task, due to the programatic way names are generally expressed with ARM functions and expressions. It is felt that showing names would add little value for a lot of development effort, however it may be considered in the future
+- A shortened resource *type* rather than the *name* is shown as the label on nodes on the graph. Resolving names for resources is an extremely complex task, due to the programmatic way names are generally expressed with ARM functions and expressions. It is felt that showing names would add little value for a lot of development effort, however it may be considered in the future
 
 # Running & Contributing
 ### Pre-reqs
