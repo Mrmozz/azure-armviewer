@@ -6,18 +6,21 @@ This is a simple but functional web based viewer / visualizer for Azure Resource
 - Loading from remote URL
 - Loading from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) on Github
 - Snap to grid mode
+- Clicking on a resource will display info for that resource in a breakout info box
 - Exporting to PNG
 
 # Demo Version
 A runnning demo instance is deployed and usable here [http://armviewer.azurewebsites.net/](http://armviewer.azurewebsites.net/)
 
 # Screenshot
-![](https://user-images.githubusercontent.com/14982936/33526343-9bd465d6-d837-11e7-86b0-1a25ad5ffaf4.png)
+![](https://user-images.githubusercontent.com/14982936/33665812-04b02a18-da90-11e7-8f87-6a31bdf68363.png)
 
 # Limitations & Known Issues 
 - The app attempts to find the links (`dependsOn` relationships) between ARM resources, however due to the many subtle and complex ways these relationships can be defined & expressed, certain links may not be picked up & displayed.
-- Resources may not be shown with the correct icon. Icons for the most commonly used resource types have been added, more are added as required. 
-- A shortened resource *type* rather than the *name* is shown as the label on nodes on the graph. Resolving names for resources is an extremely complex task, due to the programmatic way names are generally expressed with ARM functions and expressions. It is felt that showing names would add little value for a lot of development effort, however it may be considered in the future
+- Resources may not be shown with the correct icon. Icons for the most commonly used resource types have been added, more icons are being added during development. 
+- A shortened resource *type* rather than the *name* is shown as the label on nodes on the graph, this makes for much more readable diagrams 
+- Resolving names for resources is attempted, but due to programmatic way names are generally expressed with ARM functions and expressions, full name resolution is not always possible
+- Templates using the loop functions `copy` & `copyIndex` to create multiple resources will not be rendered correctly due to limitations on evaluating the dynamic iterative state of the template    
 
 # Running & Contributing
 ### Pre-reqs
