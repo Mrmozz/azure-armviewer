@@ -58,7 +58,7 @@ footer {
   font-size: 90%;
   border: 2px solid rgb(0,120,215);
   box-shadow: 6px 6px 5px rgba(0,0,0,0.3);
-  width: 40%;
+  /*width: 40%;*/
   position: absolute;
   z-index: 8000;
   bottom: 0px;
@@ -67,6 +67,20 @@ footer {
   border-radius: 8px;
   word-wrap: break-word;
 }
-.panel-heading img {
+
+#infobox td:first-child {
+  font-weight: bold;
+}
+
+#infobox tr {
+  border-bottom: 2px solid rgb(0,120,215);;
+}
+
+#infobox .panel-heading  {
+  font-size: 120%;
+  font-weight: bold;
+}
+
+#infobox .panel-heading img {
   height: 25px;
 }

@@ -15,6 +15,7 @@ function initCy() {
 
   // Force single selection only
   cy.on('select', evt => {
+    //console.log(evt.target);
     if(!evt.target.isEdge()) {
       if(cy.$('node:selected').length > 1)
         cy.$('node:selected')[0].unselect();
@@ -24,9 +25,24 @@ function initCy() {
       $('#infotype').text(evt.target.data('type'));
       $('#infoname').text(unescape(evt.target.data('name')));
       if(evt.target.data('location') != 'undefined') 
-        $('#infoloc').text(unescape(evt.target.data('location')));
+        $('#infoloc').text(unescape(evt.target.data('location'))).parent().show();
       else
-        $('#infoloc').text('')
+        $('#infoloc').parent().hide();
+
+      if(evt.target.data('kind')) 
+        $('#infokind').text(evt.target.data('kind')).parent().show();
+      else
+        $('#infokind').parent().hide();       
+
+      if(evt.target.data('vminfo')) {
+        let vmInfoHtml = $('<div></div>');
+        Object.keys(evt.target.data('vminfo')).forEach(k => {
+          vmInfoHtml.append(`${k}: ${evt.target.data('vminfo')[k]}<br/>`)
+        });
+        console.log(vmInfoHtml);
+        $('#infovm').html(vmInfoHtml).parent().show();
+      } else
+        $('#infovm').parent().hide();            
     }
   })
 
