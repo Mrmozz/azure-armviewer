@@ -37,7 +37,7 @@ function initCy() {
       if(evt.target.data('vminfo')) {
         let vmInfoHtml = $('<div></div>');
         Object.keys(evt.target.data('vminfo')).forEach(k => {
-          vmInfoHtml.append(`${k}: ${evt.target.data('vminfo')[k]}<br/>`)
+          vmInfoHtml.append(`<b>${k}:</b> ${evt.target.data('vminfo')[k]}<br/>`)
         });
         console.log(vmInfoHtml);
         $('#infovm').html(vmInfoHtml).parent().show();
