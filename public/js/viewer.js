@@ -23,7 +23,8 @@ function initCy() {
         cy.$('node:selected')[0].unselect();
 
       // The rest of this is just pull info from the node's data and showing it in a HTML div & table
-      $('#infobox').show();
+      $('#infobox .panel-body').show();
+      $('#infobox').fadeIn(200);
       $('#infoimg').attr('src', evt.target.data('img'));
       $('#infotype').text(evt.target.data('type'));
       $('#infoname').text(unescape(evt.target.data('name')));
@@ -49,7 +50,8 @@ function initCy() {
   })
 
   cy.on('unselect', evt => {
-    $('#infobox').hide();
+    if(cy.$('node:selected').length <= 0)
+      $('#infobox').fadeOut(200);
   })
 }
 
@@ -110,10 +112,14 @@ function toggleSnap() {
     cy.snapToGrid('snapOn');
     cy.fit();
     $('#snapBut').removeClass('btn-primary')
-    $('#snapBut').addClass('btn-info')    
+    $('#snapBut').addClass('pressed')    
   } else {  
     cy.snapToGrid('snapOff');
-    $('#snapBut').removeClass('btn-info')
+    $('#snapBut').removeClass('pressed')
     $('#snapBut').addClass('btn-primary')    
   }  
+}
+
+function toggleInfo() {
+  $('#infobox .panel-body').toggle();
 }

@@ -7,28 +7,28 @@
     </div>
 
     <ul class='nav navbar-nav'>
-      <li><a data-toggle="modal" data-target="#dialogLoadFile" class='btn btn-success navbar-btn'><i class="fa fa-file-code-o"></i>&nbsp; Load File</a></li>
-      <li><a data-toggle="modal" data-target="#dialogLoadLink" class='btn btn-success navbar-btn'><i class="fa fa-external-link"></i>&nbsp; Load URL</a></li>
-      <li><a href="/qs" class='btn btn-success navbar-btn'><i class="fa fa-git-square"></i>&nbsp; Load Quickstart</a></li>
+      <li><button data-toggle="modal" data-target="#dialogLoadFile" class='btn btn-default navbar-btn'><i class="fa fa-file-code-o"></i>&nbsp; Load File</button></li>
+      <li><button data-toggle="modal" data-target="#dialogLoadLink" class='btn btn-default navbar-btn'><i class="fa fa-external-link"></i>&nbsp; Load URL</button></li>
+      <li><button onclick="document.location='/qs'" class='btn btn-default navbar-btn'><i class="fa fa-git-square"></i>&nbsp; Load Quickstart</button></li>
     </ul>
   
     <% if(!isHome) { %>
-      <ul class='nav navbar-nav pull-right' >
-        <li><a style="font-size:170%" class='btn btn-primary navbar-btn' 
+      <ul class='nav navbar-nav pull-right'>
+        <li><button class='btn btn-primary navbar-btn' 
           id="snapBut" onclick='toggleSnap()' data-toggle="tooltip" 
-          title="Snap to grid"><i class="fa fa-th"></i></a></li>
+          title="Snap to grid"><i class="fa fa-th"></i></button></li>
 
-        <li><a style="font-size:170%" class='btn btn-primary navbar-btn' 
+        <li><button class='btn btn-primary navbar-btn' 
           onclick='cy.fit()' data-toggle="tooltip"
-          title="Refit view"><i class="fa fa-compress"></i></a></li>
+          title="Refit view"><i class="fa fa-compress"></i></button></li>
 
-        <li><a style="font-size:170%" class='btn btn-primary navbar-btn' 
+        <li><button class='btn btn-primary navbar-btn' 
           onclick='reLayout()' data-toggle="tooltip"
-          title="Re-layout"><i class="fa fa-clone"></i></a></li>
+          title="Re-layout"><i class="fa fa-clone"></i></button></li>
               
-        <li><a style="font-size:170%" class='btn btn-primary navbar-btn' 
+        <li><button class='btn btn-primary navbar-btn' 
           onclick='savePNG()' data-toggle="tooltip"
-          title="Save as PNG"><i class="fa fa-download"></i></a></li>
+          title="Save as PNG"><i class="fa fa-download"></i></button></li>
       </ul>
     <% } %>
   
@@ -99,4 +99,8 @@
   $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip({delay: 200, placement: 'bottom', container: 'main'}); 
   });
+
+  $(".btn").mouseup(function(){
+    $(this).blur();
+  })
 </script>

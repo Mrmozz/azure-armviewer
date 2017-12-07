@@ -11,6 +11,23 @@ body {
   padding-right: 0 !important;
 }
 
+.navbar-inverse button {
+  margin-top: 10px;
+  font-size: 22px;
+}
+
+.navbar-brand {
+  font-size: 28px;
+}
+
+.navbar-inverse {
+  padding-bottom: 2px;
+}
+
+.panel {
+  border-width: 0px;
+}
+
 .jumbotron {
   background-color: white; 
   border: 3px solid rgba(0, 120, 215, 0.5);
@@ -18,7 +35,8 @@ body {
 
 .jumbotron h2 {
   margin-top:0px; 
-  color:rgb(0,120,215)
+  color:rgb(0,120,215);
+  font-weight: 500;
 }
 
 footer {
@@ -56,7 +74,7 @@ footer {
 
 #infobox {
   font-size: 90%;
-  border: 2px solid rgb(0,120,215);
+  border: 1px solid rgb(0,120,215);
   box-shadow: 6px 6px 5px rgba(0,0,0,0.3);
   /*width: 40%;*/
   position: absolute;
@@ -64,8 +82,8 @@ footer {
   bottom: 0px;
   right: 20px;
   padding: 0px;
-  border-radius: 8px;
   word-wrap: break-word;
+  font-size: 105%;
 }
 
 #infobox td:first-child {
@@ -75,13 +93,24 @@ footer {
 
 #infobox tr {
   border-bottom: 2px solid #c5c5c5;
+  margin: 15px;
+}
+
+#infobox td {
+  padding: 5px;
 }
 
 #infobox .panel-heading  {
   font-size: 120%;
   font-weight: bold;
+  cursor: pointer;
 }
 
 #infobox .panel-heading img {
   height: 25px;
+}
+
+.pressed {
+  background-color: rgb(0, 64, 109);
+  color: #fff;
 }
