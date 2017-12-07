@@ -13,13 +13,16 @@ function initCy() {
     selectionType: 'single'
   });
 
-  // Force single selection only
+  // Handle selection events
   cy.on('select', evt => {
-    //console.log(evt.target);
+    // Only work with nodes
     if(!evt.target.isEdge()) {
+
+      // Force selection of single nodes only
       if(cy.$('node:selected').length > 1)
         cy.$('node:selected')[0].unselect();
 
+      // The rest of this is just pull info from the node's data and showing it in a HTML div & table
       $('#infobox').show();
       $('#infoimg').attr('src', evt.target.data('img'));
       $('#infotype').text(evt.target.data('type'));
@@ -39,7 +42,6 @@ function initCy() {
         Object.keys(evt.target.data('vminfo')).forEach(k => {
           vmInfoHtml.append(`<b>${k}:</b> ${evt.target.data('vminfo')[k]}<br/>`)
         });
-        console.log(vmInfoHtml);
         $('#infovm').html(vmInfoHtml).parent().show();
       } else
         $('#infovm').parent().hide();            

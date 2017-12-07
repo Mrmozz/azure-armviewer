@@ -70,10 +70,11 @@ footer {
 
 #infobox td:first-child {
   font-weight: bold;
+  color: rgb(0,120,215);
 }
 
 #infobox tr {
-  border-bottom: 2px solid rgb(0,120,215);;
+  border-bottom: 2px solid #c5c5c5;
 }
 
 #infobox .panel-heading  {
