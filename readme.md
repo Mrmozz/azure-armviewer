@@ -13,7 +13,7 @@ This is a simple but functional web based viewer / visualizer for Azure Resource
 A runnning demo instance is deployed and usable here [http://armviewer.azurewebsites.net/](http://armviewer.azurewebsites.net/)
 
 # Screenshot
-![](https://user-images.githubusercontent.com/14982936/33665812-04b02a18-da90-11e7-8f87-6a31bdf68363.png)
+![](https://user-images.githubusercontent.com/14982936/33782004-bc29946c-dc4e-11e7-97e5-6c1ea56928d6.png)
 
 # Limitations & Known Issues 
 - The app attempts to find the links (`dependsOn` relationships) between ARM resources, however due to the many subtle and complex ways these relationships can be defined & expressed, certain links may not be picked up & displayed.
