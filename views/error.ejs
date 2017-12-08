@@ -6,8 +6,12 @@
   <header> <% include partials/header %> </header>
 
   <main>
-    <h1>ERROR</h1>
-    <p><%= err %></p>
+    <div class="panel panel-danger">
+      <div class="panel-heading">ERROR!</div>
+      <div class="panel-body">
+        <p class="error"><%= err %></p>          
+      </div>
+    </div>
   </main>
 
   <footer> <% include partials/footer %> </footer>

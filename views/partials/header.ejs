@@ -1,37 +1,64 @@
 <nav class='navbar navbar-inverse navbar-fixed-top' role='navigation'>
   <div class='container-fluid'>
 
-    <div class='navbar-header'>
-      <a href='/' class='navbar-left'><img src='/img/icon-wh.svg'></a>
-      <a class='navbar-brand' href='/'> ARM Viewer </a>
+    <!-- sidebar only show when toggled/opened (e.g. mobile) -->
+    <div id="mobileNav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a data-toggle="modal" data-target="#dialogLoadFile" href="#"><i class="fas fa-file-code"></i> Load File</a>
+      <a data-toggle="modal" data-target="#dialogLoadLink" href="#"><i class="fas fa-link"></i> Load File</a>
+      <a href="/qs"><i class="fas fa-code-branch"></i> Load File</a>
     </div>
 
-    <ul class='nav navbar-nav'>
-      <li><button data-toggle="modal" data-target="#dialogLoadFile" class='btn btn-default navbar-btn'><i class="fa fa-file-code-o"></i>&nbsp; Load File</button></li>
-      <li><button data-toggle="modal" data-target="#dialogLoadLink" class='btn btn-default navbar-btn'><i class="fa fa-external-link"></i>&nbsp; Load URL</button></li>
-      <li><button onclick="document.location='/qs'" class='btn btn-default navbar-btn'><i class="fa fa-git-square"></i>&nbsp; Load Quickstart</button></li>
+    <!-- logo -->
+    <a class="navbar-brand" href="/"><img src='/img/icon-wh.svg'><span>&nbsp; ARM Viewer</span> </a>
+
+    <!-- main buttons -->
+    <ul class='nav navbar-nav navbar-left hidden-xs'>
+      <li>
+        <button data-toggle="modal" data-target="#dialogLoadFile" class='btn btn-default navbar-btn'>
+          <i class="fas fa-file-code"></i><span class="hidden-md hidden-sm">&nbsp; Load File</span>
+        </button>
+      </li>
+      <li>
+        <button data-toggle="modal" data-target="#dialogLoadLink" class='btn btn-default navbar-btn'>
+          <i class="fa fa-link"></i><span class="hidden-md hidden-sm">&nbsp; Load URL</span>
+        </button>
+      </li>
+      <li>
+        <button onclick="document.location='/qs'" class='btn btn-default navbar-btn'>
+          <i class="fa fa-code-branch"></i><span class="hidden-md hidden-sm">&nbsp; Load Quickstart</span>
+        </button>
+      </li>
     </ul>
   
     <% if(!isHome) { %>
-      <ul class='nav navbar-nav pull-right'>
-        <li><button class='btn btn-primary navbar-btn' 
+      <!-- toolbar only shown if viewing a template -->
+      <ul class='nav navbar-nav navbar-right hidden-xs'>
+        <li><button class='btn btn-primary navbar-btn tool' 
           id="snapBut" onclick='toggleSnap()' data-toggle="tooltip" 
           title="Snap to grid"><i class="fa fa-th"></i></button></li>
 
-        <li><button class='btn btn-primary navbar-btn' 
+        <li><button class='btn btn-primary navbar-btn tool' 
           onclick='cy.fit()' data-toggle="tooltip"
           title="Refit view"><i class="fa fa-compress"></i></button></li>
 
-        <li><button class='btn btn-primary navbar-btn' 
+        <li><button class='btn btn-primary navbar-btn tool' 
           onclick='reLayout()' data-toggle="tooltip"
           title="Re-layout"><i class="fa fa-clone"></i></button></li>
               
-        <li><button class='btn btn-primary navbar-btn' 
+        <li><button class='btn btn-primary navbar-btn tool ' 
           onclick='savePNG()' data-toggle="tooltip"
           title="Save as PNG"><i class="fa fa-download"></i></button></li>
       </ul>
     <% } %>
   
+    <!-- toggle sidenav menu button (only shown on mobile) -->
+    <div class="nav navbar-nav navbar-right visible-xs mobiletoggle">
+      <button type="button" class="btn btn-primary" onclick="toggleNav()">
+      <i class="fa fa-bars"></i>
+      </button>
+    </div>
+
   </div>
 </nav>
 
@@ -103,4 +130,22 @@
   $(".btn").mouseup(function(){
     $(this).blur();
   })
+
+  openNav = function() {
+    $("#mobileNav").width("50%");
+  }
+
+  closeNav = function() {
+    $("#mobileNav").width("0");
+  }
+
+  toggleNav = function() {
+    let nav = $("#mobileNav");
+    var wid = nav.width();
+    if(wid.length == 0 || wid == "0" || wid == "0px" || wid == 0)
+      nav.width("50%");
+    else
+      nav.width("0");
+  }  
+
 </script>
