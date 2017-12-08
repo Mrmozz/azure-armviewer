@@ -22,8 +22,7 @@ function initCy() {
       if(cy.$('node:selected').length > 1)
         cy.$('node:selected')[0].unselect();
 
-      // The rest of this is just pull info from the node's data and showing it in a HTML div & table
-      $('#infobox .panel-body').show();
+      // The rest of this is just pulling info from the node's data and showing it in a HTML div & table
       $('#infobox').fadeIn(200);
       $('#infoimg').attr('src', evt.target.data('img'));
       $('#infotype').text(evt.target.data('type'));
@@ -39,9 +38,10 @@ function initCy() {
         $('#infokind').parent().hide();       
 
       if(evt.target.data('vminfo')) {
+        let info = evt.target.data('vminfo');
         let vmInfoHtml = $('<div></div>');
-        Object.keys(evt.target.data('vminfo')).forEach(k => {
-          vmInfoHtml.append(`<b>${k}:</b> ${evt.target.data('vminfo')[k]}<br/>`)
+        Object.keys(info).forEach(k => {
+          vmInfoHtml.append(`<b>${k}:</b> ${unescape(info[k])}<br/>`)
         });
         $('#infovm').html(vmInfoHtml).parent().show();
       } else
