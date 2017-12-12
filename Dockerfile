@@ -24,5 +24,5 @@ COPY . .
 RUN chmod a+x ./dockerentry.sh
 
 # Port 2222 is custom port for SSH, port 80 for Express 
-EXPOSE 2222 80
+EXPOSE 2222 3000
 ENTRYPOINT [ "./dockerentry.sh" ]
