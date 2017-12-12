@@ -74,10 +74,12 @@ function reLayout() {
     'border-width': '0',
     'font-family': '"Segoe UI", Arial, Helvetica, sans-serif',
     'font-size': '15vh',
-    'color': '#444444',
+    'color': '#222222',
     'text-valign': 'bottom',
     'text-margin-y': '10vh',
-    'font-size': '20%'
+    'font-size': '20%',
+    'text-outline-color': '#fff',
+    'text-outline-width': '4'
   });
   cy.style().selector('node:selected').style({
     'border-width': '4',
@@ -88,6 +90,9 @@ function reLayout() {
     'target-arrow-shape': 'triangle',
     'curve-style': 'bezier',
     'width': 6,
+    'line-color': '#cccccc',
+    'arrow-scale': '1.5',
+    'target-arrow-color': '#cccccc'
   }).update();
 
   cy.snapToGrid({gridSpacing: 200, lineWidth: 3, drawGrid: true});
