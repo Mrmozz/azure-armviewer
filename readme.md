@@ -17,9 +17,8 @@ A runnning demo instance is deployed and usable here [http://armviewer.azurewebs
 
 # Limitations & Known Issues 
 - The app attempts to find the links (`dependsOn` relationships) between ARM resources, however due to the many subtle and complex ways these relationships can be defined & expressed, certain links may not be picked up & displayed.
-- Resources may not be shown with the correct icon. Icons for the most commonly used resource types have been added, more icons are being added during development. 
-- A shortened resource *type* rather than the *name* is shown as the label on nodes on the graph, this makes for much more readable diagrams 
-- Resolving names for resources is attempted, but due to programmatic way names are generally expressed with ARM functions and expressions, full name resolution is not always possible
+- Icons for the most commonly used & popular resource types have been added, however not every resource is covered. The default ARM cube icon will be shown as a fallback. More icons are being added during development as missing icons are found. 
+- Resolving names & other properties for resources is attempted, but due to programmatic way these are generally defined with ARM functions and expressions, full name resolution is not always possible
 - Templates using the loop functions `copy` & `copyIndex` to create multiple resources will not be rendered correctly due to limitations on evaluating the dynamic iterative state of the template    
 
 # Running & Contributing
@@ -29,7 +28,7 @@ A runnning demo instance is deployed and usable here [http://armviewer.azurewebs
 ### Running locally
 Clone or download this repo then run `npm install` and then `npm start`
 
-Express will listen on port 3000, so access the app via **http://localhost:3000/**
+Express will listen on port 3000 (or what the `PORT` env var is set to), so access the app via **http://localhost:3000/**
 
 ### Containers 
 Docker build file is provided with the source, build as normal with `docker build`. Also a pre-built image is [available on Dockerhub](https://hub.docker.com/r/bencuk/armviewer/)
