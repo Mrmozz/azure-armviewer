@@ -2,6 +2,7 @@
 var cy;
 var settingSnap = false;
 var infoShown = false;
+var labelField = 'label';
 
 function initCy() {
   $('#infobox').hide();
@@ -31,9 +32,7 @@ function initCy() {
       if(cy.$('node:selected').length > 1) {
         cy.$('node:selected')[0].unselect();
       }
-
-
-
+      
       // The rest of this is just pulling info from the node's data and showing it in a HTML div & table
       $('#infoimg').attr('src', evt.target.data('img'));
 
@@ -80,7 +79,7 @@ function reLayout() {
   cy.style().selector('node').style({
     'background-color': '#FFFFFF',
     'background-opacity': 1,
-    'label': 'data(label)',
+    'label': function( ele ){ return unescape(ele.data(labelField)) },
     'background-image': 'data(img)',
     'background-width': '90%',
     'background-height': '90%',
@@ -139,6 +138,13 @@ function toggleSnap() {
     $('#snapBut').removeClass('pressed')
     $('#snapBut').addClass('btn-primary')    
   }  
+}
+
+function toggleLabels() {
+  labelField = labelField == 'label' ? 'name' : 'label' 
+  cy.style().selector('node').style({
+    'label': function( ele ){ return unescape(ele.data(labelField)) },
+  }).update();
 }
 
 function titleCase(str) {

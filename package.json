@@ -1,6 +1,6 @@
 {
   "name": "azure-armviewer",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "Visualize and render graphically ARM templates",
   "main": "server.js",
   "scripts": {
