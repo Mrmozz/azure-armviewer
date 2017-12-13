@@ -1,5 +1,5 @@
 FROM node:8-alpine
-LABEL Name="ARM Template Viewer" Version=0.5.2
+LABEL Name="ARM Template Viewer" Version=0.6.0
 ENV NODE_ENV production
 WORKDIR /usr/src/app
 ENV PORT 3000

@@ -33,7 +33,7 @@ router
 
     // Pass result of parsing to the view
     res.render('viewer', {
-      dataJSON: JSON.stringify(parser.getElements()),
+      dataJSON: JSON.stringify(parser.getResult()),
       isHome: false
     });
   });

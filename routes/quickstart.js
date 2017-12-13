@@ -3,13 +3,15 @@ const router = express.Router();
 const request = require('request');
 const cache = require('memory-cache');
 
+const QUICKSTART_URL = 'https://github.com/Azure/azure-quickstart-templates';
+
 // Fetch list of Azure Quickstart templates from Github page
 router
 .get('/qs', function (req, res, next) {
   let githubHtml = cache.get('githubHtml');
   
   if(!githubHtml) {
-    request.get('https://github.com/Azure/azure-quickstart-templates', function (err, gitres, body) {
+    request.get(QUICKSTART_URL, function (err, gitres, body) {
       // Cache resulting HTML for 1 hour
       cache.put('githubHtml', gitres.body.toString(), 3600*1000);
       processHtml(gitres.body.toString(), res);
@@ -19,6 +21,7 @@ router
   }
 })
 
+// Crazy regex voodoo to get a list of folder links from the Github page
 function processHtml(html, res) {
   re = /a href=".*?\/Azure\/azure-quickstart-templates\/tree\/master\/(.*?)"\s+class="js-navigation-open"/g;
   let links = [];

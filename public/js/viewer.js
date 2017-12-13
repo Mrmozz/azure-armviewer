@@ -1,6 +1,7 @@
 // Globals
 var cy;
 var settingSnap = false;
+var infoShown = false;
 
 function initCy() {
   $('#infobox').hide();
@@ -13,17 +14,25 @@ function initCy() {
     selectionType: 'single'
   });
 
+  cy.on('click tap', evt => {
+    // Only sensible way I could find to hide the info box when unselecting
+    if(!evt.target.length && infoShown) {
+      $('#infobox').toggle("slide")
+      infoShown = false;
+    }
+  })
+
   // Handle selection events
   cy.on('select', evt => {
     // Only work with nodes
-    if(!evt.target.isEdge()) {
+    if(evt.target.isNode()) {
 
       // Force selection of single nodes only
-      if(cy.$('node:selected').length > 1)
+      if(cy.$('node:selected').length > 1) {
         cy.$('node:selected')[0].unselect();
+      }
 
       // The rest of this is just pulling info from the node's data and showing it in a HTML div & table
-      $('#infobox').fadeIn(200);
       $('#infoimg').attr('src', evt.target.data('img'));
       $('#infotype').text(evt.target.data('type'));
       $('#infoname').text(unescape(evt.target.data('name')));
@@ -37,6 +46,7 @@ function initCy() {
       else
         $('#infokind').parent().hide();       
 
+      // VM info is extra
       if(evt.target.data('vminfo')) {
         let info = evt.target.data('vminfo');
         let vmInfoHtml = $('<div></div>');
@@ -44,14 +54,16 @@ function initCy() {
           vmInfoHtml.append(`<b>${k}:</b> ${unescape(info[k])}<br/>`)
         });
         $('#infovm').html(vmInfoHtml).parent().show();
-      } else
-        $('#infovm').parent().hide();            
-    }
-  })
+      } else {
+        $('#infovm').parent().hide();      
+      }
 
-  cy.on('unselect', evt => {
-    if(cy.$('node:selected').length <= 0)
-      $('#infobox').fadeOut(200);
+      // Now display the info box
+      if(!infoShown) {
+        $('#infobox').toggle("slide")
+        infoShown = true;
+      }      
+    }
   })
 }
 
@@ -123,8 +135,4 @@ function toggleSnap() {
     $('#snapBut').removeClass('pressed')
     $('#snapBut').addClass('btn-primary')    
   }  
-}
-
-function toggleInfo() {
-  $('#infobox .panel-body').toggle();
 }

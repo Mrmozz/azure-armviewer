@@ -43,9 +43,17 @@ body {
 }
 
 .jumbotron h2 {
-  margin-top:0px; 
-  color:rgb(0,120,215);
+  margin-top: -10px; 
+  color:#fff;
   font-weight: 500;
+  font-size: 4vw;
+  background-color:rgb(73, 38, 143);
+  padding: 20px;
+}
+@media (min-width: 2200px) {
+  .jumbotron h2 {
+    font-size: 86px;
+  }
 }
 
 footer {
@@ -105,7 +113,7 @@ footer {
 #infobox .panel-heading  {
   font-size: 120%;
   font-weight: bold;
-  cursor: pointer;
+
 }
 
 #infobox .panel-heading img {
@@ -176,6 +184,7 @@ footer {
   font-size: 36px;
   margin-left: 50px;
 }
+
 .mobiletoggle {
   position: absolute; top:0; right: 0; padding: 0; margin:0;
 }
