@@ -32,30 +32,23 @@ function initCy() {
         cy.$('node:selected')[0].unselect();
       }
 
+
+
       // The rest of this is just pulling info from the node's data and showing it in a HTML div & table
       $('#infoimg').attr('src', evt.target.data('img'));
-      $('#infotype').text(evt.target.data('type'));
-      $('#infoname').text(unescape(evt.target.data('name')));
-      if(evt.target.data('location') != 'undefined') 
-        $('#infoloc').text(unescape(evt.target.data('location'))).parent().show();
-      else
-        $('#infoloc').parent().hide();
 
+      $('#infotable').html('');
+      addInfo('Name', evt.target.data('name'));
+      addInfo('Type', evt.target.data('type'));
+      addInfo('Location', evt.target.data('location'));
       if(evt.target.data('kind')) 
-        $('#infokind').text(evt.target.data('kind')).parent().show();
-      else
-        $('#infokind').parent().hide();       
+        addInfo('Kind', evt.target.data('kind'));   
 
-      // VM info is extra
-      if(evt.target.data('vminfo')) {
-        let info = evt.target.data('vminfo');
-        let vmInfoHtml = $('<div></div>');
-        Object.keys(info).forEach(k => {
-          vmInfoHtml.append(`<b>${k}:</b> ${unescape(info[k])}<br/>`)
-        });
-        $('#infovm').html(vmInfoHtml).parent().show();
-      } else {
-        $('#infovm').parent().hide();      
+      // Display any extra fields
+      if(evt.target.data('extra')) {
+        Object.keys(evt.target.data('extra')).forEach(extra => {
+          addInfo(extra, evt.target.data('extra')[extra]);
+        })
       }
 
       // Now display the info box
@@ -65,6 +58,17 @@ function initCy() {
       }      
     }
   })
+}
+
+function addInfo(name, value) {
+  if(value == 'undefined') return;
+  name = name.replace('-', ' ');
+  value = unescape(value);
+
+  if(value.startsWith('http'))
+    $('#infotable').append(`<tr><td>${titleCase(name)}</td><td><a href='/view?url=${encodeURIComponent(value)}' target='_blank'>${value}</a></td></tr>`)
+  else
+    $('#infotable').append(`<tr><td>${titleCase(name)}</td><td>${value}</td></tr>`)
 }
 
 function loadData(elements) {
@@ -135,4 +139,10 @@ function toggleSnap() {
     $('#snapBut').removeClass('pressed')
     $('#snapBut').addClass('btn-primary')    
   }  
+}
+
+function titleCase(str) {
+  return str.toLowerCase().split(' ').map(function(word) {
+    return word.replace(word[0], word[0].toUpperCase());
+  }).join(' ');
 }

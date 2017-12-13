@@ -5,7 +5,7 @@
   <script src="/js/cytoscape.min.js"></script>
   <script src="/js/cytoscape-snap-to-grid.js"></script>
   <script src="/js/fileSaver.js"></script>
-  <script src="/js/viewer.js"></script>
+  <script src="/js/arm-viewer.js"></script>
 </head>
 
 <body>
@@ -20,18 +20,14 @@
   <div id="infobox" class="panel panel-primary">
     <div class="panel-heading"><img id="infoimg" src=''/> &nbsp; Resource Details</div>
     <div class="panel-body">
-      <table>    
-        <tr><td>Type:&nbsp;</td><td id="infotype"></td></tr>
-        <tr><td>Name:&nbsp;</td><td id="infoname"></td></tr>
-        <tr><td>Location:&nbsp;</td><td id="infoloc"></td></tr>
-        <tr><td>Kind:&nbsp;</td><td id="infokind"></td></tr>
-        <tr><td>VM Info:&nbsp;</td><td id="infovm"></td></tr>
+      <table id="infotable">    
       </table>
     </div>
   </div>
 
   <script>
     let data = JSON.parse('<%- dataJSON %>');
+    //console.dir(data);
     initCy();
     loadData(data)
 
