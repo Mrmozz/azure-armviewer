@@ -4,6 +4,13 @@ var logger = require('morgan');
 var app = express();
 var fs = require("fs");
 
+// App Insights
+if(process.env.APPINSIGHTS_INSTRUMENTATIONKEY) {
+  const appInsights = require("applicationinsights");
+  appInsights.setup()
+  appInsights.start();
+}
+
 // Allow file uploads
 const fileUpload = require('express-fileupload');
 app.use(fileUpload());

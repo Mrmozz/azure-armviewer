@@ -31,12 +31,12 @@ body {
 
 .navbar-inverse {
   padding-bottom: 2px;
-  box-shadow: 0 0 10px #000000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .panel {
   border-width: 0px;
-  box-shadow: 0 0 10px #000000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
 .jumbotron {
@@ -56,6 +56,10 @@ body {
   .jumbotron h2 {
     font-size: 86px;
   }
+}
+
+.jumbotron h2 img {
+  width: 8vw;
 }
 
 footer {
