@@ -108,7 +108,7 @@ function reLayout() {
     'line-color': '#cccccc',
     'arrow-scale': '1.5',
     'target-arrow-color': '#cccccc'
-  }).update();
+  });
 
   cy.snapToGrid({gridSpacing: 200, lineWidth: 3, drawGrid: true});
   if(settingSnap)
@@ -116,6 +116,7 @@ function reLayout() {
   else  
     cy.snapToGrid('snapOff');
 
+  cy.style().update()
   cy.resize();
   cy.layout({name: 'breadthfirst'}).run();
   cy.fit();

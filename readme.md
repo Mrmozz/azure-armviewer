@@ -6,6 +6,7 @@ This is a simple but functional web based viewer / visualizer for Azure Resource
 - Loading from remote URL
 - Loading from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) on Github
 - Snap to grid mode
+- Toggle between showing resource names or types
 - Clicking on a resource will display info for that resource in a breakout info box
 - Exporting to PNG
 

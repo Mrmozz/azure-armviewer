@@ -31,10 +31,12 @@ body {
 
 .navbar-inverse {
   padding-bottom: 2px;
+  box-shadow: 0 0 10px #000000;
 }
 
 .panel {
   border-width: 0px;
+  box-shadow: 0 0 10px #000000;
 }
 
 .jumbotron {
@@ -80,13 +82,13 @@ footer {
   width: 100%;
   background-color: white;
   height: 90vh;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 #infobox {
   font-size: 90%;
   border: 1px solid rgb(0,120,215);
   box-shadow: 6px 6px 5px rgba(0,0,0,0.3);
-  /*width: 40%;*/
   position: absolute;
   z-index: 8000;
   bottom: 0px;
@@ -94,6 +96,8 @@ footer {
   padding: 0px;
   word-wrap: break-word;
   font-size: 105%;
+  max-width: 90%;
+  overflow: hidden;
 }
 
 #infobox td:first-child {
@@ -108,12 +112,18 @@ footer {
 
 #infobox td {
   padding: 5px;
+  font-size: 1.1em;
+}
+@media only screen and (max-width: 600px)  {
+  #infobox td {
+    font-size: 0.8em;
+  }  
 }
 
 #infobox .panel-heading  {
   font-size: 120%;
   font-weight: bold;
-
+  cursor: pointer;
 }
 
 #infobox .panel-heading img {
@@ -124,6 +134,7 @@ footer {
   background-color: rgb(0, 64, 109);
   color: #fff;
 }
+
 .tool {
   border: 1px solid rgb(44, 155, 240);
 }
@@ -132,6 +143,7 @@ footer {
   color: #fff;
   font-size: 150%;
 }
+
 .modal-header {
   background-color: rgb(16, 124, 16);
   padding: 10px !important;
@@ -146,22 +158,20 @@ footer {
   font-size: 140%;
 }
 
-/* The side navigation menu */
 .sidenav {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 100; /* Stay on top */
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 100;
   top: 0;
   left: 0;
-  background-color: #dddddd; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
+  background-color: #dddddd;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.3s;
   box-shadow: 6px 0px 6px rgba(0, 0, 0, 0.4);
 }
 
-/* The navigation menu links */
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
@@ -171,12 +181,10 @@ footer {
   transition: 0.2s
 }
 
-/* When you mouse over the navigation links, change their color */
 .sidenav a:hover, .offcanvas a:focus{
   color: #444444;
 }
 
-/* Position and style the close button (top right corner) */
 .sidenav .closebtn {
   position: absolute;
   top: 0;

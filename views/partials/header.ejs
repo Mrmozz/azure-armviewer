@@ -7,6 +7,14 @@
       <a data-toggle="modal" data-target="#dialogLoadFile" href="#"><i class="fas fa-file-code"></i> Load File</a>
       <a data-toggle="modal" data-target="#dialogLoadLink" href="#"><i class="fas fa-link"></i> Load URL</a>
       <a href="/qs"><i class="fas fa-code-branch"></i> Load Quickstart</a>
+      <% if(!isHome) { %>
+        <hr/>
+        <a href="#" onclick="toggleSnap(); closeNav()"><i class="fas fa-th"></i> Snap To Grid</a>
+        <a href="#" onclick="toggleLabels(); closeNav()"><i class="fa fa-tags"></i> Toggle Labels</a>
+        <a href="#" onclick="cy.fit(); closeNav()"><i class="fa fa-compress"></i> Fit View</a>
+        <a href="#" onclick="reLayout(); closeNav()"><i class="fa fa-clone"></i> Re-layout</a>
+        <a href="#" onclick="savePNG(); closeNav()"><i class="fa fa-download"></i> Save PNG</a>
+      <% } %>
     </div>
 
     <!-- logo -->
@@ -28,7 +36,7 @@
         <button onclick="document.location='/qs'" class='btn btn-default navbar-btn'>
           <i class="fa fa-code-branch"></i><span class="hidden-md hidden-sm">&nbsp; Load Quickstart</span>
         </button>
-      </li>
+      </li>      
     </ul>
   
     <% if(!isHome) { %>
@@ -42,7 +50,7 @@
           id="snapBut" onclick='toggleLabels()' data-toggle="tooltip" 
           title="Toggle Label Names"><i class="fa fa-tags"></i></button></li>
   
-        <li><button class='btn btn-primary navbar-btn tool' 
+        <li><button class='btn btn-primary navbar-btn tool hidden-sm' 
           onclick='cy.fit()' data-toggle="tooltip"
           title="Refit view"><i class="fa fa-compress"></i></button></li>
 
@@ -136,7 +144,7 @@
   })
 
   openNav = function() {
-    $("#mobileNav").width("50%");
+    $("#mobileNav").width("60%");
   }
 
   closeNav = function() {
@@ -147,7 +155,7 @@
     let nav = $("#mobileNav");
     var wid = nav.width();
     if(wid.length == 0 || wid == "0" || wid == "0px" || wid == 0)
-      nav.width("50%");
+      nav.width("60%");
     else
       nav.width("0");
   }  
