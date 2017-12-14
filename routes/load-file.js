@@ -5,6 +5,16 @@ const ARMParser = require('../lib/arm-parser');
 
 router
 .post('/view', function (req, res, next) {
+
+  // No file :(
+  if(!req.files.template) {
+    res.render('error', {
+      err: "No file specified or uploaded, please supply a file",
+      isHome: true
+    });
+    return; 
+  }
+  
   // JSON is in file, we hope!
   let templateJSON = req.files.template.data.toString();
   
