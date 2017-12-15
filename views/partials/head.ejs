@@ -8,7 +8,6 @@
 <link href="/css/bootstrap.css" rel="stylesheet">
 
 <!-- Load in Font Awesome 5 Pro -->
-<!--link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/-->
 <script src="/js/fontawesome-all.js"></script>
 
 <!-- Load in jQuery from CDN, drop back to v2 or v1 if problems -->
@@ -18,8 +17,13 @@
 <!-- Site specific CSS & JS -->
 <link rel="stylesheet" href="/css/styles.css"/>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="/css/snackbar.css" rel="stylesheet" />
 
+<!-- Mobile optimized -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0078D7"/>
+
+<!-- App insights -->
 <%if (process.env.APPINSIGHTS_INSTRUMENTATIONKEY) { %>
    <script type="text/javascript">
      var appInsights=window.appInsights||function(config){

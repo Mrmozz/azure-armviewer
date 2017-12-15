@@ -153,3 +153,8 @@ function titleCase(str) {
     return word.replace(word[0], word[0].toUpperCase());
   }).join(' ');
 }
+
+function hideInfo() {
+  $('#infobox').toggle('slide'); 
+  infoShown = false;
+}

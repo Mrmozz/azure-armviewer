@@ -3,13 +3,17 @@ var express = require('express');
 var logger = require('morgan');
 var app = express();
 var fs = require("fs");
+var bodyParser = require('body-parser')
 
 // App Insights
 if(process.env.APPINSIGHTS_INSTRUMENTATIONKEY) {
   const appInsights = require("applicationinsights");
-  appInsights.setup()
+  appInsights.setup();
   appInsights.start();
 }
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Allow file uploads
 const fileUpload = require('express-fileupload');

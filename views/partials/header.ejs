@@ -7,7 +7,7 @@
       <a data-toggle="modal" data-target="#dialogLoadFile" href="#"><i class="fas fa-file-code"></i> Load File</a>
       <a data-toggle="modal" data-target="#dialogLoadLink" href="#"><i class="fas fa-link"></i> Load URL</a>
       <a href="/qs"><i class="fas fa-code-branch"></i> Load Quickstart</a>
-      <% if(!isHome) { %>
+      <% if(showTools) { %>
         <hr/>
         <a href="#" onclick="toggleSnap(); closeNav()"><i class="fas fa-th"></i> Snap To Grid</a>
         <a href="#" onclick="toggleLabels(); closeNav()"><i class="fa fa-tags"></i> Toggle Labels</a>
@@ -39,22 +39,26 @@
       </li>      
     </ul>
   
-    <% if(!isHome) { %>
+    <% if(showTools) { %>
       <!-- toolbar only shown if viewing a template -->
-      <ul class='nav navbar-nav navbar-right hidden-xs'>
+      <ul class='nav navbar-nav navbar-right hidden-xs tools'>
+        <li><button class='btn btn-primary navbar-btn tool' 
+          onclick='startEditor()' data-toggle="tooltip" 
+          title="Edit"><i class="fa fa-edit"></i></button></li>
+
         <li><button class='btn btn-primary navbar-btn tool' 
           id="snapBut" onclick='toggleSnap()' data-toggle="tooltip" 
           title="Snap to grid"><i class="fa fa-th"></i></button></li>
 
         <li><button class='btn btn-primary navbar-btn tool' 
-          id="snapBut" onclick='toggleLabels()' data-toggle="tooltip" 
+          onclick='toggleLabels()' data-toggle="tooltip" 
           title="Toggle Label Names"><i class="fa fa-tags"></i></button></li>
   
         <li><button class='btn btn-primary navbar-btn tool hidden-sm' 
           onclick='cy.fit()' data-toggle="tooltip"
           title="Refit view"><i class="fa fa-compress"></i></button></li>
 
-        <li><button class='btn btn-primary navbar-btn tool' 
+        <li><button class='btn btn-primary navbar-btn tool hidden-sm' 
           onclick='reLayout()' data-toggle="tooltip"
           title="Re-layout"><i class="fa fa-clone"></i></button></li>
               

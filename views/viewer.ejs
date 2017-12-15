@@ -6,6 +6,8 @@
   <script src="/js/cytoscape-snap-to-grid.js"></script>
   <script src="/js/fileSaver.js"></script>
   <script src="/js/arm-viewer.js"></script>
+  <script src="/js/arm-editor.js"></script>
+  <!--script src="/js/prism.js"></script-->
 </head>
 
 <body>
@@ -13,12 +15,15 @@
   <header> <% include partials/header %> </header>
 
   <main>
-    <div id="mainview">
-    </div>
+    <div id="mainview"></div>
+    <form id="editorform" action="/edit" method="POST">
+      <textarea id="editor" wrap="soft" name="editor"></textarea>
+    </form>
+    <div id="snackbar">Some text some message..</div>
   </main>
 
-  <div id="infobox" class="panel panel-primary" onclick="$('#infobox').toggle('slide'); infoShown = false;">
-    <div class="panel-heading"><img id="infoimg" src=''/> &nbsp; Resource Details</div>
+  <div id="infobox" class="panel panel-primary">
+    <div class="panel-heading" onclick="hideInfo()"><img id="infoimg" src=''/> &nbsp; Resource Details</div>
     <div class="panel-body">
       <table id="infotable">    
       </table>
@@ -27,7 +32,10 @@
 
   <script>
     let data = JSON.parse('<%- dataJSON %>');
-    //console.dir(data);
+    console.log(data);
+    let template = unescape('<%- template %>');
+    if(data.length == 0) startEditor();
+
     initCy();
     loadData(data)
 

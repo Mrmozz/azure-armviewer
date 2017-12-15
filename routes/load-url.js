@@ -12,7 +12,7 @@ router
     if(err) { 
       res.render('error', {
         err: err,
-        isHome: true
+        showTools: false,
       });
       return; 
     }
@@ -26,7 +26,7 @@ router
     if(parser.getError()) {
       res.render('error', {
         err: parser.getError(),
-        isHome: true
+        showTools: false
       });
       return; 
     }
@@ -34,7 +34,8 @@ router
     // Pass result of parsing to the view
     res.render('viewer', {
       dataJSON: JSON.stringify(parser.getResult()),
-      isHome: false
+      showTools: true,
+      template: escape(templateJSON)
     });
   });
 })

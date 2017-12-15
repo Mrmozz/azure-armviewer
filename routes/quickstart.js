@@ -38,7 +38,7 @@ function processHtml(html, res) {
   res.render('quickstart', 
   { 
     linkList: links,
-    isHome: true
+    showTools: false
   });
 }
 
