@@ -62,6 +62,7 @@ function initCy() {
 function addInfo(name, value) {
   if(value == 'undefined') return;
   name = name.replace('-', ' ');
+  name = unescape(name);
   value = unescape(value);
 
   if(value.startsWith('http'))
