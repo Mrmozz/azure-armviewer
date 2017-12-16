@@ -1072,7 +1072,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+  font-family: "Segoe UI Light", "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
   font-size: 17px;
   line-height: 1.42857143;
   color: #333333;
@@ -1173,7 +1173,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+  font-family: "Segoe UI Light", "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
   font-weight: 300;
   line-height: 1.1;
   color: inherit;
@@ -1377,11 +1377,11 @@ a.bg-success:focus {
   background-color: #0a4f0a;
 }
 .bg-info {
-  background-color: #49268f;
+  background-color: #bad80a;
 }
 a.bg-info:hover,
 a.bg-info:focus {
-  background-color: #341b67;
+  background-color: #90a708;
 }
 .bg-warning {
   background-color: #ff8c00;
@@ -2376,14 +2376,14 @@ table th[class*="col-"] {
 .table > thead > tr.info > th,
 .table > tbody > tr.info > th,
 .table > tfoot > tr.info > th {
-  background-color: #49268f;
+  background-color: #bad80a;
 }
 .table-hover > tbody > tr > td.info:hover,
 .table-hover > tbody > tr > th.info:hover,
 .table-hover > tbody > tr.info:hover > td,
 .table-hover > tbody > tr:hover > .info,
 .table-hover > tbody > tr.info:hover > th {
-  background-color: #3f217b;
+  background-color: #a5c009;
 }
 .table > thead > tr > td.warning,
 .table > tbody > tr > td.warning,
@@ -3216,26 +3216,26 @@ fieldset[disabled] .btn-success.focus {
 }
 .btn-info {
   color: #555555;
-  background-color: #49268f;
-  border-color: #49268f;
+  background-color: #bad80a;
+  border-color: #bad80a;
 }
 .btn-info:focus,
 .btn-info.focus {
   color: #555555;
-  background-color: #341b67;
-  border-color: #160b2a;
+  background-color: #90a708;
+  border-color: #515e04;
 }
 .btn-info:hover {
   color: #555555;
-  background-color: #341b67;
-  border-color: #30195f;
+  background-color: #90a708;
+  border-color: #889e07;
 }
 .btn-info:active,
 .btn-info.active,
 .open > .dropdown-toggle.btn-info {
   color: #555555;
-  background-color: #341b67;
-  border-color: #30195f;
+  background-color: #90a708;
+  border-color: #889e07;
 }
 .btn-info:active:hover,
 .btn-info.active:hover,
@@ -3247,8 +3247,8 @@ fieldset[disabled] .btn-success.focus {
 .btn-info.active.focus,
 .open > .dropdown-toggle.btn-info.focus {
   color: #555555;
-  background-color: #26144b;
-  border-color: #160b2a;
+  background-color: #738506;
+  border-color: #515e04;
 }
 .btn-info:active,
 .btn-info.active,
@@ -3264,11 +3264,11 @@ fieldset[disabled] .btn-info:focus,
 .btn-info.disabled.focus,
 .btn-info[disabled].focus,
 fieldset[disabled] .btn-info.focus {
-  background-color: #49268f;
-  border-color: #49268f;
+  background-color: #bad80a;
+  border-color: #bad80a;
 }
 .btn-info .badge {
-  color: #49268f;
+  color: #bad80a;
   background-color: #555555;
 }
 .btn-warning {
@@ -4869,11 +4869,11 @@ a.label:focus {
   background-color: #0a4f0a;
 }
 .label-info {
-  background-color: #49268f;
+  background-color: #bad80a;
 }
 .label-info[href]:hover,
 .label-info[href]:focus {
-  background-color: #341b67;
+  background-color: #90a708;
 }
 .label-warning {
   background-color: #ff8c00;
@@ -5047,12 +5047,12 @@ a.thumbnail.active {
   color: #e6e6e6;
 }
 .alert-info {
-  background-color: #49268f;
-  border-color: #2d1f73;
+  background-color: #bad80a;
+  border-color: #b6b208;
   color: #fff;
 }
 .alert-info hr {
-  border-top-color: #25195f;
+  border-top-color: #9e9a07;
 }
 .alert-info .alert-link {
   color: #e6e6e6;
@@ -5141,7 +5141,7 @@ a.thumbnail.active {
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 .progress-bar-info {
-  background-color: #49268f;
+  background-color: #bad80a;
 }
 .progress-striped .progress-bar-info {
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -5325,7 +5325,7 @@ button.list-group-item-success.active:focus {
 }
 .list-group-item-info {
   color: #fff;
-  background-color: #49268f;
+  background-color: #bad80a;
 }
 a.list-group-item-info,
 button.list-group-item-info {
@@ -5340,7 +5340,7 @@ button.list-group-item-info:hover,
 a.list-group-item-info:focus,
 button.list-group-item-info:focus {
   color: #fff;
-  background-color: #3f217b;
+  background-color: #a5c009;
 }
 a.list-group-item-info.active,
 button.list-group-item-info.active,
@@ -5708,22 +5708,22 @@ button.list-group-item-danger.active:focus {
   border-bottom-color: #1c650d;
 }
 .panel-info {
-  border-color: #2d1f73;
+  border-color: #b6b208;
 }
 .panel-info > .panel-heading {
   color: #fff;
-  background-color: #49268f;
-  border-color: #2d1f73;
+  background-color: #bad80a;
+  border-color: #b6b208;
 }
 .panel-info > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #2d1f73;
+  border-top-color: #b6b208;
 }
 .panel-info > .panel-heading .badge {
-  color: #49268f;
+  color: #bad80a;
   background-color: #fff;
 }
 .panel-info > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #2d1f73;
+  border-bottom-color: #b6b208;
 }
 .panel-warning {
   border-color: #f05c00;
@@ -5961,7 +5961,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+  font-family: "Segoe UI Light", "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6079,7 +6079,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+  font-family: "Segoe UI Light", "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6747,7 +6747,7 @@ body {
 }
 .text-info,
 .text-info:hover {
-  color: #49268f;
+  color: #bad80a;
 }
 table a:not(.btn),
 .table a:not(.btn) {
