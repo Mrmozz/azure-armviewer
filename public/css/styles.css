@@ -202,7 +202,15 @@ footer {
 }
 
 .mobiletoggle {
-  position: absolute; top:0; right: 0; padding: 0; margin:0;
+  position: absolute; 
+  top:0; 
+  right: 0; 
+  padding: 0; 
+  margin: 0;
+}
+
+.mobiletoggle button {
+  color: #fff !important;
 }
 
 #editor {
