@@ -17,7 +17,7 @@ This project was inspired by the [existing ARMViz tool](https://github.com/armvi
 A running demo instance is deployed and usable here [http://armviewer.azurewebsites.net/](http://armviewer.azurewebsites.net/)
 
 # Screenshot
-![](https://user-images.githubusercontent.com/14982936/34038579-c31afdfc-e184-11e7-829b-365e5d62a389.png)
+![](https://user-images.githubusercontent.com/14982936/34101628-306b405a-e3de-11e7-821d-3458b73a5f53.png)
 
 # Limitations & Known Issues 
 - The app attempts to find the links (`dependsOn` relationships) between ARM resources, however due to the many subtle and complex ways these relationships can be defined & expressed, certain links may not be picked up & displayed.
