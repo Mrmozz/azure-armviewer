@@ -14,13 +14,13 @@ function startEditor() {
   $('#editor').show();
   $('.tools').children().hide();
   $('.tools').append(`
-   <li><button class='btn btn-success navbar-btn tool' style="color:white" 
+   <li><button class='btn btn-success navbar-btn'
    onclick='editorSave()' data-toggle="tooltip" 
-   title="Save"><i class="fas fa-save"></i> Save</button></li>`);
-   $('.tools').append(`
-   <li><button class='btn btn-warning navbar-btn tool' style="color:white" 
+   title="Save"><i class="fas fa-save"></i> &nbsp; Save &nbsp;</button>&nbsp;</li>`);
+  $('.tools').append(`
+   <li><button class='btn btn-warning navbar-btn'
    onclick='editorCancel()' data-toggle="tooltip" 
-   title="Save"><i class="far fa-times"></i> Cancel</button></li>`);
+   title="Save"><i class="far fa-times"></i> Cancel</button>&nbsp;</li>`);
 }
 
 // Save the edits, check for errors and if OK, post the form to the server

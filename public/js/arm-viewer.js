@@ -134,10 +134,10 @@ function toggleSnap() {
     cy.snapToGrid('snapOn');
     cy.fit();
     $('#snapBut').removeClass('btn-primary')
-    $('#snapBut').addClass('pressed')    
+    $('#snapBut').addClass('btn-info')    
   } else {  
     cy.snapToGrid('snapOff');
-    $('#snapBut').removeClass('pressed')
+    $('#snapBut').removeClass('btn-info')
     $('#snapBut').addClass('btn-primary')    
   }  
 }

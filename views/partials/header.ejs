@@ -4,65 +4,60 @@
     <!-- sidebar only show when toggled/opened (e.g. mobile) -->
     <div id="mobileNav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a data-toggle="modal" data-target="#dialogLoadFile" href="#"><i class="fas fa-file-code"></i> Load File</a>
-      <a data-toggle="modal" data-target="#dialogLoadLink" href="#"><i class="fas fa-link"></i> Load URL</a>
-      <a href="/qs"><i class="fas fa-code-branch"></i> Load Quickstart</a>
+      <a onclick="$('#loadfile').click()" href="#"><i class="fas fa-file-code" style="width:30px"></i> Load File</a>
+      <a data-toggle="modal" data-target="#dialogLoadLink" href="#"><i class="fa fa-cloud-upload" style="width:30px"></i> Load URL</a>
+      <a href="/qs"><i class="fas fa-code-branch" style="width:30px"></i> Load Quickstart</a>
       <% if(showTools) { %>
         <hr/>
-        <a href="#" onclick="toggleSnap(); closeNav()"><i class="fas fa-th"></i> Snap To Grid</a>
-        <a href="#" onclick="toggleLabels(); closeNav()"><i class="fa fa-tags"></i> Toggle Labels</a>
-        <a href="#" onclick="cy.fit(); closeNav()"><i class="fa fa-compress"></i> Fit View</a>
-        <a href="#" onclick="reLayout(); closeNav()"><i class="fa fa-clone"></i> Re-layout</a>
-        <a href="#" onclick="savePNG(); closeNav()"><i class="fa fa-download"></i> Save PNG</a>
+        <a href="#" onclick="toggleSnap(); closeNav()"><i class="fas fa-th" style="width:30px"></i> Snap To Grid</a>
+        <a href="#" onclick="toggleLabels(); closeNav()"><i class="fa fa-tags" style="width:30px"></i> Toggle Labels</a>
+        <a href="#" onclick="cy.fit(); closeNav()"><i class="fa fa-compress" style="width:30px"></i> Fit View</a>
+        <a href="#" onclick="reLayout(); closeNav()"><i class="fa fa-clone" style="width:30px"></i> Re-layout</a>
+        <a href="#" onclick="savePNG(); closeNav()"><i class="fa fa-download" style="width:30px"></i> Save PNG</a>
       <% } %>
     </div>
 
     <!-- logo -->
-    <a class="navbar-brand" href="/"><img src='/img/icon.svg'><span>&nbsp; ARM Viewer</span> </a>
+    <a class="navbar-brand" href="/"><img src='/img/icon.svg'><span>&nbsp; ARM Viewer</span></a>
+    
+    <span class='nav navbar-nav'>&nbsp;</span>
 
     <!-- main buttons -->
     <ul class='nav navbar-nav navbar-left hidden-xs'>
-      <li>
-        <button data-toggle="modal" data-target="#dialogLoadFile" class='btn btn-info navbar-btn'>
-          <i class="fas fa-file-code"></i><span class="hidden-md hidden-sm">&nbsp; Load File</span>
-        </button>
-      </li>
-      <li>
-        <button data-toggle="modal" data-target="#dialogLoadLink" class='btn btn-info navbar-btn'>
-          <i class="fa fa-link"></i><span class="hidden-md hidden-sm">&nbsp; Load URL</span>
-        </button>
-      </li>
-      <li>
-        <button onclick="document.location='/qs'" class='btn btn-info navbar-btn'>
-          <i class="fa fa-code-branch"></i><span class="hidden-md hidden-sm">&nbsp; Load Quickstart</span>
-        </button>
-      </li>      
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-folder-open"></i> Load Template <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#" onclick="$('#loadfile').click()"><i class="fas fa-file-code" style='width:20px'></i> Load File</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#dialogLoadLink"><i class="fa fa-cloud-upload" style='width:20px'></i> Load URL</a></li>
+          <li><a href="/qs"><i class="fa fa-code-branch" style='width:20px'></i> Load Quickstart</a></li>
+        </ul>
+      </li>     
     </ul>
   
     <% if(showTools) { %>
       <!-- toolbar only shown if viewing a template -->
       <ul class='nav navbar-nav navbar-right hidden-xs tools'>
-        <li><button class='btn btn-primary navbar-btn tool' 
+        <li><button class='btn btn-primary navbar-btn' 
           onclick='startEditor()' data-toggle="tooltip" 
           title="Edit"><i class="fa fa-edit"></i></button></li>
 
-        <li><button class='btn btn-primary navbar-btn tool' 
+        <li><button class='btn btn-primary navbar-btn' 
           id="snapBut" onclick='toggleSnap()' data-toggle="tooltip" 
           title="Snap to grid"><i class="fa fa-th"></i></button></li>
 
-        <li><button class='btn btn-primary navbar-btn tool' 
+        <li><button class='btn btn-primary navbar-btn' 
           onclick='toggleLabels()' data-toggle="tooltip" 
           title="Toggle Label Names"><i class="fa fa-tags"></i></button></li>
   
-        <li><button class='btn btn-primary navbar-btn tool hidden-sm' 
+        <li><button class='btn btn-primary navbar-btn' 
           onclick='cy.fit()' data-toggle="tooltip"
           title="Refit view"><i class="fa fa-compress"></i></button></li>
 
-        <li><button class='btn btn-primary navbar-btn tool hidden-sm' 
+        <li><button class='btn btn-primary navbar-btn' 
           onclick='reLayout()' data-toggle="tooltip"
           title="Re-layout"><i class="fa fa-clone"></i></button></li>
               
-        <li><button class='btn btn-primary navbar-btn tool ' 
+        <li><button class='btn btn-primary navbar-btn' 
           onclick='savePNG()' data-toggle="tooltip"
           title="Save as PNG"><i class="fa fa-download"></i></button></li>
       </ul>
@@ -80,31 +75,9 @@
 
 <!-- ================================================== -->
 
-<div id="dialogLoadFile" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-     <div class="modal-content">
-        <div class="modal-header">
-           <button class="close" data-dismiss="modal">&times;</button>
-           <h4 class="modal-title">Load Template From File</h4>
-        </div>
-        <div class="modal-body">
-          <form method="post" id="fileform" action="/view" encType="multipart/form-data">
-            <div class="form-group">
-                <label for="file">JSON file:</label>
-                <input type="file" class="form-control" name="template">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-           <button class="btn btn-success" data-dismiss="modal" 
-             onclick="$('#fileform').submit()">
-              &nbsp; OK &nbsp; 
-           </button>
-           <button class="btn btn-default" data-dismiss="modal">Cancel</button>
-        </div>
-     </div>
-  </div>
-</div>
+<form method="post" id="fileform" action="/view" encType="multipart/form-data">
+  <input type="file" class="form-control" name="template" accept=".json" id="loadfile" style="display:none" onchange="$('#fileform').submit()">
+</form>
 
 <!-- ==================================================== -->
 
@@ -113,7 +86,7 @@
      <div class="modal-content">
         <div class="modal-header">
            <button class="close" data-dismiss="modal">&times;</button>
-           <h4 class="modal-title">Load Template From URL</h4>
+           <h4 class="modal-title">&nbsp; <i class="fa fa-cloud-upload"></i> &nbsp; Load Template From URL</h4>
         </div>
         <div class="modal-body">
            <div class="form-group">
