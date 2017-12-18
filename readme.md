@@ -1,7 +1,7 @@
 # ARM Viewer
-This is a simple but functional web based viewer / visualizer for Azure Resource Monitor (ARM) templates. The app is written in Node.js + Express with some jQuery & JS on the client. The app makes heavy use of the [Cytoscape.js](http://js.cytoscape.org/) library for rending the view 
+This is a simple but functional web based viewer / visualizer for Azure Resource Monitor (ARM) templates. The app is written in Node.js + Express with some jQuery & JS on the client. The app makes heavy use of the [Cytoscape.js](http://js.cytoscape.org/) library for rendering the view 
 
-This project was inspired by the [existing ARMViz tool](https://github.com/armviz/armviz.io). ARMViz seems to have been abandoned, has many problems, and I was never pleased with the look of the output. These are some of the reasons why I have created this ARM Viewer tool
+This project was inspired by the [existing ARMViz tool](https://github.com/armviz/armviz.io). ARMViz sadly seems to have been abandoned, it often has problems displaying templates, and personally I was never that pleased with the look of the output. These are some of the reasons why I have created my own ARM template viewing tool
 
 ### Features
 - Loading from file (upload JSON template)
@@ -27,7 +27,7 @@ A running demo instance is deployed and usable here [http://armviewer.azurewebsi
 
 # Running & Contributing
 ### Pre-reqs
-- Node.js v6+ (v8.9 recommended)
+- Node.js v6+ (v8.9+ recommended)
 
 ### Running locally
 Clone or download this repo then run `npm install` and then `npm start`
