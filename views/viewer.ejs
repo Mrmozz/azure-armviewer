@@ -33,7 +33,7 @@
   <script>
     let data = JSON.parse('<%- dataJSON %>');
     console.log(data);
-    let template = unescape('<%- template %>');
+    let template = decodeURIComponent('<%- template %>');
     if(data.length == 0) startEditor();
 
     initCy();

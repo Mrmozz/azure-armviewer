@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const request = require('request');
 const ARMParser = require('../lib/arm-parser');
+const utils = require('../lib/utils');
 
 router
 .post('/view', function (req, res, next) {
@@ -33,7 +34,7 @@ router
   res.render('viewer', {
     dataJSON: JSON.stringify(parser.getResult()),
     showTools: true,
-    template: escape(templateJSON)
+    template: utils.encode(templateJSON)
   });
 })
 

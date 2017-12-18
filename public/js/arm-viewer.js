@@ -62,8 +62,8 @@ function initCy() {
 function addInfo(name, value) {
   if(value == 'undefined') return;
   name = name.replace('-', ' ');
-  name = unescape(name);
-  value = unescape(value);
+  name = decodeURIComponent(name);
+  value = decodeURIComponent(value);
 
   if(value.startsWith('http'))
     $('#infotable').append(`<tr><td>${titleCase(name)}</td><td><a href='/view?url=${encodeURIComponent(value)}' target='_blank'>${value}</a></td></tr>`)
@@ -80,7 +80,7 @@ function reLayout() {
   cy.style().selector('node').style({
     'background-color': '#FFFFFF',
     'background-opacity': 1,
-    'label': function( ele ){ return unescape(ele.data(labelField)) },
+    'label': function( ele ){ return decodeURIComponent(ele.data(labelField)) },
     'background-image': 'data(img)',
     'background-width': '90%',
     'background-height': '90%',
@@ -145,7 +145,7 @@ function toggleSnap() {
 function toggleLabels() {
   labelField = labelField == 'label' ? 'name' : 'label' 
   cy.style().selector('node').style({
-    'label': function( ele ){ return unescape(ele.data(labelField)) },
+    'label': function( ele ){ return decodeURIComponent(ele.data(labelField)) },
   }).update();
 }
 
