@@ -36,9 +36,9 @@
   
     <% if(showTools) { %>
       <!-- toolbar only shown if viewing a template -->
-      <ul class='nav navbar-nav navbar-right hidden-xs tools'>
+      <ul class='nav navbar-nav navbar-right hidden-xs' id='view-tools'>
         <li><button class='btn btn-primary navbar-btn' 
-          onclick='startEditor()' data-toggle="tooltip" 
+          onclick='startEditor(rawTemplate)' data-toggle="tooltip" 
           title="Edit"><i class="fa fa-edit"></i></button></li>
 
         <li><button class='btn btn-primary navbar-btn' 
@@ -62,6 +62,17 @@
           title="Save as PNG"><i class="fa fa-download"></i></button></li>
       &nbsp;
       </ul>
+
+      <!-- toolbar only shown if viewing a template -->
+      <ul class='nav navbar-nav navbar-right hidden-xs' id='edit-tools'>
+        <li><button class='btn btn-primary navbar-btn'
+          onclick='editorSave()' data-toggle="tooltip" 
+          title="Save"><i class="fas fa-save"></i> &nbsp; Save &nbsp;</button>&nbsp;</li>
+
+        <li><button class='btn btn-primary navbar-btn'
+          onclick='editorCancel()' data-toggle="tooltip" 
+          title="Cancel"><i class="far fa-times"></i> Cancel</button>&nbsp;</li>
+      </ul>      
     <% } %>
   
     <!-- toggle sidenav menu button (only shown on mobile) -->

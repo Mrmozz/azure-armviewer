@@ -1,6 +1,6 @@
 {
   "name": "azure-armviewer",
-  "version": "0.8.5",
+  "version": "0.9.0",
   "description": "Visualize and render graphically ARM templates",
   "main": "server.js",
   "scripts": {
@@ -22,6 +22,7 @@
     "ejs": "^2.5.7",
     "express": "^4.16.1",
     "express-fileupload": "^0.3.0",
+    "jsoneditor": "^5.11.0",
     "memory-cache": "^0.2.0",
     "morgan": "^1.9.0",
     "request": "^2.83.0"

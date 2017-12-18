@@ -14,19 +14,27 @@ body {
 .navbar-brand img {
   width:45px; margin-top:-5px; display: inline-block;
 }
+
 .navbar-brand {
   margin-top:-5px;
   font-size: 28px;
 }
+
 .navbar-inverse {
   max-height: 60px;
   min-height: 60px;
   padding-top: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
-.dropdown-menu li a {
-  line-height: 32px;
+
+.navbar-nav li a, .navbar-nav button {
+  font-size: 110%;
 }
+
+.dropdown-menu li a {
+  line-height: 39px;
+}
+
 .mobiletoggle {
   position: absolute; 
   top: 6px; 
@@ -246,7 +254,11 @@ footer {
 }
 
 #editor {
-  display: none;
+  font-size: 150% !important;
+  max-height: 91vh;
+  height: 91vh;
+  
+  /*display: none;
   width: 100%;
   max-height: 89vh;
   height: 89vh;
@@ -255,5 +267,10 @@ footer {
   white-space: nowrap;
   background-color: #1f1d1d;
   color: #f0a356;
+  font-family: "Lucida Console", Monaco, monospace;*/
+}
+
+.ace_editor {
+  font-size: 16px !important;
   font-family: "Lucida Console", Monaco, monospace;
 }

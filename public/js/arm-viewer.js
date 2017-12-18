@@ -4,8 +4,18 @@ var settingSnap = false;
 var infoShown = false;
 var labelField = 'label';
 
-function initCy() {
+$(window).resize(function() {
+  cy.resize();
+  cy.fit();
+});
+
+function startViewer(elements) {
+  isEditing = false;
   $('#infobox').hide();
+  $('#mainview').show();
+  $('#editor').hide();
+  $('#edit-tools').hide();
+  $('#view-tools').show();
 
   cy = cytoscape({ 
     container: $('#mainview'),
@@ -57,6 +67,10 @@ function initCy() {
       }      
     }
   })
+
+  // Important part! load the elements (nodes) to the view
+  cy.add(elements);
+  reLayout();
 }
 
 function addInfo(name, value) {
@@ -69,11 +83,6 @@ function addInfo(name, value) {
     $('#infotable').append(`<tr><td>${titleCase(name)}</td><td><a href='/view?url=${encodeURIComponent(value)}' target='_blank'>${value}</a></td></tr>`)
   else
     $('#infotable').append(`<tr><td>${titleCase(name)}</td><td>${value}</td></tr>`)
-}
-
-function loadData(elements) {
-  cy.add(elements);
-  reLayout();
 }
 
 function reLayout() {

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <% include partials/head %> 
+  <script src="/js/cytoscape.min.js"></script>
+  <script src="/js/cytoscape-snap-to-grid.js"></script>
+  <script src="/js/fileSaver.js"></script>
+  <script src="/js/arm-viewer.js"></script>
+  <script src="/js/arm-editor.js"></script>
+
+  <link href="/jsoneditor/jsoneditor.css" rel="stylesheet" type="text/css">
+  <script src="/jsoneditor/jsoneditor.js"></script>
+</head>
+
+<body>
+
+  <header> <% include partials/header %> </header>
+
+  <main>
+    <!-- Main view used by Cytoscape to show the template -->
+    <div id="mainview"></div>
+
+    <!-- JSON editor -->
+    <div id="editor" wrap="soft" name="editor"></div>
+    <form id="editorForm" action="/edit" method="POST">
+      <input type="hidden" name="editor" id="editorText" />
+    </form>
+
+    <!-- Pop-up for errors -->
+    <div id="snackbar">...</div>
+  </main>
+
+  <!-- Box used to display info about selected resource -->
+  <div id="infobox" class="panel panel-primary">
+    <div class="panel-heading" onclick="hideInfo()"><img id="infoimg" src=''/> &nbsp; Resource Details</div>
+    <div class="panel-body">
+      <table id="infotable">    
+      </table>
+    </div>
+  </div>
+
+  <script>
+    // Globals used by both arm-viewer.js and arm-editor.js
+    let editor = null;
+    let data = JSON.parse('<%- dataJSON %>');
+    //console.log(data);
+    let rawTemplate = decodeURIComponent('<%- template %>');
+    let isEditing = false;
+    
+    if(data.length == 0) isEditing = true;
+
+    if(isEditing)
+      startEditor(rawTemplate)
+    else 
+      startViewer(data);
+
+  </script>
+</body>
+</html>

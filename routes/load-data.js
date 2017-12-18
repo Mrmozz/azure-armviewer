@@ -20,7 +20,7 @@ router
   }
 
   // Pass result of parsing to the view
-  res.render('viewer', {
+  res.render('main', {
     dataJSON: JSON.stringify(parser.getResult()),
     showTools: true,
     template: utils.encode(templateJSON)
