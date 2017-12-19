@@ -25,6 +25,7 @@
     "jsoneditor": "^5.11.0",
     "memory-cache": "^0.2.0",
     "morgan": "^1.9.0",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "strip-bom": "^3.0.0"
   }
 }
