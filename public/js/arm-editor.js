@@ -1,14 +1,11 @@
 // Switch to editor mode
 function startEditor(rawTemplate) {
-  isEditing = true;
-  
-  // create the editor
+  // create the JSONeditor
   var container = document.getElementById("editor");
   var options = { 
     modes:['code', 'tree'],
     onError: showError
   };
-
   if(!editor)
     editor = new JSONEditor(container, options);
   

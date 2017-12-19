@@ -24,6 +24,7 @@ router
     // Parse the template JSON
     var parser = new ARMParser(templateJSON);    
 
+    // Check for errors
     if(parser.getError()) {
       res.render('error', {
         err: parser.getError(),

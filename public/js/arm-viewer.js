@@ -10,7 +10,6 @@ $(window).resize(function() {
 });
 
 function startViewer(elements) {
-  isEditing = false;
   $('#infobox').hide();
   $('#mainview').show();
   $('#editor').hide();

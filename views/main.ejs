@@ -42,18 +42,16 @@
   <script>
     // Globals used by both arm-viewer.js and arm-editor.js
     let editor = null;
-    let data = JSON.parse('<%- dataJSON %>');
-    //console.log(data);
-    let rawTemplate = decodeURIComponent('<%- template %>');
-    let isEditing = false;
+    let data = JSON.parse('<%- dataJSON %>'); //console.log(data);
+    let rawTemplate = decodeURIComponent('<%- template %>'); //console.log(rawTemplate);
     
-    if(data.length == 0) isEditing = true;
+    var urlParams = new URLSearchParams(window.location.search);
 
-    if(isEditing)
+    if(urlParams.has('edit') || data.length == 0)
       startEditor(rawTemplate)
     else 
       startViewer(data);
-
   </script>
+
 </body>
 </html>

@@ -42,71 +42,10 @@ body {
   padding: 0; 
   margin: 0;
 }
-/*
-.navbar-inverse button {
-  margin-top: 8px !important;
-  font-size: 22px;
-}
 
-.navbar-brand {
-  margin-top: 2px !important;
-  font-size: 28px;
+#edit-tools, #view-tools {
+  display: none;
 }
-
-.navbar-brand img {
-  width:45px; margin-top:-10px; display: inline-block;
-}
-
-.navbar-brand span {
-  display: inline-block;
-}
-
-.navbar-inverse {
-  padding-bottom: 2px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-}
-
-.navbar-left>img {
-  height: 50px;
-  width: 50px;
-  padding-top: 5px;
-  margin-right: 10px;
-}
-
-.dropdown-toggle {
-  background-color: rgb(19, 133, 226) !important;
-  padding: 10px !important;
-  margin-top: 5px;
-}
-
-.dropdown-menu li a {
-  line-height: 32px;
-}
-
-.pressed {
-  background-color: rgb(0, 64, 109);
-  color: #fff;
-}
-
-.toolbtn {
-  color: #fff !important;
-  border: 1px solid rgb(44, 155, 240);
-}
-
-.mobiletoggle {
-  position: absolute; 
-  top:0; 
-  right: 0; 
-  padding: 0; 
-  margin: 0;
-}
-
-.mobiletoggle button {
-  color: #fff !important;
-}
-*/
-
-/* --------------------------------------------------- */
 
 .panel {
   border-width: 0px;
@@ -155,6 +94,7 @@ footer {
 }
 
 #infobox {
+  display: none;
   font-size: 90%;
   border: 1px solid rgb(0,120,215);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); /*6px 6px 5px rgba(0,0,0,0.3);*/
@@ -257,17 +197,6 @@ footer {
   font-size: 150% !important;
   max-height: 91vh;
   height: 91vh;
-  
-  /*display: none;
-  width: 100%;
-  max-height: 89vh;
-  height: 89vh;
-  overflow-y: scroll;
-  overflow-x: scroll;
-  white-space: nowrap;
-  background-color: #1f1d1d;
-  color: #f0a356;
-  font-family: "Lucida Console", Monaco, monospace;*/
 }
 
 .ace_editor {
