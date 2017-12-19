@@ -10,9 +10,21 @@ router
   if(!url) res.redirect('/');
 
   request.get(url, function (err, armres, body) {
+    console.log(`### Loaded ${url} ${armres.statusCode} ${armres.statusMessage}`);
+    
+    // Catch most errors
     if(err) { 
       res.render('error', {
         err: err,
+        showTools: false,
+      });
+      return; 
+    }
+    
+    // Trap HTTP errors
+    if(armres.statusCode > 400) { 
+      res.render('error', {
+        err: `HTTP ${armres.statusCode} ${armres.statusMessage}, check the URL: ${url}`,
         showTools: false,
       });
       return; 

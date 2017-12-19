@@ -43,7 +43,7 @@
   <script>
     // Globals used by both arm-viewer.js and arm-editor.js
     let editor = null;
-    let data = JSON.parse('<%- dataJSON %>'); //console.log(data);
+    let data = JSON.parse('<%- dataJSON %>'); console.log('### Data received', data);
     let rawTemplate = decodeURIComponent('<%- template %>'); //console.log(rawTemplate);
     
     var urlParams = new URLSearchParams(window.location.search);
