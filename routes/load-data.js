@@ -3,6 +3,10 @@ const router = express.Router();
 const ARMParser = require('../lib/arm-parser');
 const utils = require('../lib/utils');
 
+//
+// Route for loading template data via POST, used by the editor only
+//
+
 router
 .post('/edit', function (req, res, next) {
   // JSON from post data

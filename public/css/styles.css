@@ -20,6 +20,11 @@ body {
   font-size: 28px;
 }
 
+.navbar-brand span {
+  color: white;
+  cursor: default;
+}
+
 .navbar-inverse {
   max-height: 60px;
   min-height: 60px;

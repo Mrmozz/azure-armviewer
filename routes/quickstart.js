@@ -5,6 +5,10 @@ const cache = require('memory-cache');
 
 const QUICKSTART_URL = 'https://github.com/Azure/azure-quickstart-templates';
 
+//
+// Route for fetching list of Azure Quickstarts from GitHub
+//
+
 // Fetch list of Azure Quickstart templates from Github page
 router
 .get('/qs', function (req, res, next) {

@@ -4,6 +4,10 @@ const request = require('request');
 const ARMParser = require('../lib/arm-parser');
 const utils = require('../lib/utils');
 
+//
+// Route for loading template from a file upload
+//
+
 router
 .post('/view', function (req, res, next) {
 

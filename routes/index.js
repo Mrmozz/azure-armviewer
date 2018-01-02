@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-// Index and root
+//
+// Route for home page
+//
+
 router
 .get('/', function (req, res, next) {
   res.render('index', 
