@@ -10,16 +10,17 @@ router
   if(!url) res.redirect('/');
 
   request.get(url, function (err, armres, body) {
-    console.log(`### Loaded ${url} ${armres.statusCode} ${armres.statusMessage}`);
-    
     // Catch most errors
     if(err) { 
+      console.log('### Error loading ${url} ${err}');
       res.render('error', {
         err: err,
         showTools: false,
       });
       return; 
     }
+
+    console.log(`### Loaded ${url} ${armres.statusCode} ${armres.statusMessage}`);
     
     // Trap HTTP errors
     if(armres.statusCode > 400) { 
