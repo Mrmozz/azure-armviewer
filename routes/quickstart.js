@@ -27,7 +27,7 @@ router
 
 // Crazy regex voodoo to get a list of folder links from the Github page
 function processHtml(html, res) {
-  re = /a href=".*?\/Azure\/azure-quickstart-templates\/tree\/master\/(.*?)"\s+class="js-navigation-open"/g;
+  re = /href=".*?\/Azure\/azure-quickstart-templates\/tree\/master\/(.*?)"/g;
   let links = [];
   do {
     m = re.exec(html);
