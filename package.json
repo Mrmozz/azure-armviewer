@@ -12,13 +12,13 @@
     "url": "https://github.com/benc-uk/azure-armviewer"
   },
   "author": "Ben Coleman",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "dependencies": {
     "applicationinsights": "^1.0.1",
     "body-parser": "^1.18.2",
     "cytoscape": "^3.2.7",
     "cytoscape-snap-to-grid": "^2.0.0",
-    "dotenv": "^4.0.0",
+    "dotenv": "^5.0.0",
     "ejs": "^2.5.7",
     "express": "^4.16.1",
     "express-fileupload": "^0.3.0",
