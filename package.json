@@ -1,6 +1,6 @@
 {
   "name": "azure-armviewer",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Visualize and render graphically ARM templates",
   "main": "server.js",
   "scripts": {
@@ -14,15 +14,16 @@
   "author": "Ben Coleman",
   "license": "MIT",
   "dependencies": {
-    "applicationinsights": "^1.0.1",
+    "applicationinsights": "^1.0.5",
     "body-parser": "^1.18.2",
-    "cytoscape": "^3.2.7",
+    "cytoscape": "^3.2.17",
     "cytoscape-snap-to-grid": "^2.0.0",
-    "dotenv": "^5.0.0",
+    "dotenv": "^6.0.0",
     "ejs": "^2.5.7",
     "express": "^4.16.1",
     "express-fileupload": "^0.3.0",
     "jsoneditor": "^5.11.0",
+    "jsonlint": "^1.6.3",
     "memory-cache": "^0.2.0",
     "morgan": "^1.9.0",
     "request": "^2.83.0",
