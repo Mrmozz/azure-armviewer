@@ -27,7 +27,7 @@ A running demo instance is deployed and usable here [http://armviewer.azurewebsi
 
 # Running & Contributing
 ### Pre-reqs
-- Node.js v6+ (v8.9+ recommended)
+- Node.js v6+ (v10+ recommended)
 
 ### Running locally
 Clone or download this repo then run `npm install` and then `npm start`
